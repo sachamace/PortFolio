@@ -1,0 +1,89 @@
+/* style.css - Thème Dark & White Mode avec image de vague en header */
+:root {
+    --bg-light-mode: #f8f9fa;
+    --bg-dark-mode: #343a40;
+    --text-light-mode: #000;
+    --text-dark-mode: #fff;
+    --accent-color: #87CEEB; /* Bleu ciel */
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --border-radius: 0.5rem;
+    --transition: all 0.3s ease-in-out;
+    --current-bg: var(--bg-light-mode);
+    --current-text: var(--text-light-mode);
+    --header-height: 100px; /* Hauteur souhaitée pour le header */
+}
+
+body {
+    font-family: sans-serif;
+    color: var(--current-text);
+    background-color: var(--current-bg);
+    line-height: 1.6;
+    margin: 0;
+    padding-top: var(--header-height); /* Pour éviter que le contenu ne soit caché par le header fixe */
+    position: relative;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-image: url('images/vague-header.png'); /* Chemin vers votre image */
+    background-size: cover; /* Pour que l'image couvre tout le header */
+    background-repeat: no-repeat;
+    z-index: 1000;
+    display: flex;
+    align-items: center; /* Centre verticalement le contenu (la nav) */
+}
+
+.navbar {
+    background-color: transparent !important; /* Transparent pour voir l'image derrière */
+    width: 100%; /* Pour que la nav prenne toute la largeur du header */
+    padding: 0 20px; /* Un peu de marge intérieure */
+}
+
+.navbar-brand {
+    color: var(--text-light-mode); /* Texte en noir par défaut (mode clair) */
+    font-weight: bolder;
+    font-size: 1.75rem;
+}
+
+.navbar-nav .nav-link {
+    color: var(--text-light-mode); /* Texte en noir par défaut */
+    margin-left: 1rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #add8e6; /* Bleu ciel clair au survol */
+}
+
+/* Styles pour le mode sombre */
+.dark-mode {
+    --current-bg: var(--bg-dark-mode);
+    --current-text: var(--text-dark-mode);
+}
+
+.dark-mode .navbar-brand,
+.dark-mode .navbar-nav .nav-link {
+    color: var(--text-dark-mode); /* Texte en blanc en mode sombre */
+}
+
+body.dark-mode {
+    color: var(--text-dark-mode);
+}
+
+h1.dark-mode, h2.dark-mode, h3.dark-mode, h4.dark-mode, h5.dark-mode, h6.dark-mode {
+    color: var(--text-dark-mode);
+}
+
+.btn {
+    background-color: #87CEEB; /* Bleu ciel */
+}
+.about__icon {
+    font-size: 2rem;  /* Taille de l'icône */
+    color: #4070F4;   /* Couleur de l'icône */
+    margin-right: 1rem; /* Espace à droite de l'icône */
+}
