@@ -37,7 +37,9 @@ header {
     display: flex;
     align-items: center; /* Centre verticalement le contenu (la nav) */
 }
-
+p{
+    font-size: 19px;
+}
 .navbar {
     background-color: transparent !important; /* Transparent pour voir l'image derrière */
     width: 100%; /* Pour que la nav prenne toute la largeur du header */
@@ -83,7 +85,47 @@ h1.dark-mode, h2.dark-mode, h3.dark-mode, h4.dark-mode, h5.dark-mode, h6.dark-mo
     background-color: #87CEEB; /* Bleu ciel */
 }
 .about__icon {
-    font-size: 2rem;  /* Taille de l'icône */
+    font-size: 19px;  /* Taille de l'icône */
     color: #4070F4;   /* Couleur de l'icône */
     margin-right: 1rem; /* Espace à droite de l'icône */
+}
+.mt-5 {
+    margin-top: 3rem !important;
+}
+.mx-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.justify-content-between {
+    justify-content: space-between !important;
+}
+.justify-content-center {
+    justify-content: center !important;
+}
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1* var(--bs-gutter-y));
+    margin-right: calc(-.5* var(--bs-gutter-x));
+    margin-left: calc(-.5* var(--bs-gutter-x));
+}
+.text-center {
+    text-align: center !important;
+}
+.pink {
+    color: pink; /* ou un code hexadécimal spécifique comme #FF69B4 */
+}
+.fw-light {
+    font-weight: 300 !important;
+}
+.fs-5 {
+    font-size: 1.25rem !important;
+}
+.mt-2 {
+    margin-top: .5rem !important;
+}
+.h3, h3 {
+    font-size: calc(1.3rem + .6vw);
 }
