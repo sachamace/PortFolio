@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function enableDarkMode() {
         body.classList.add('dark-mode');
         body.classList.remove('light-mode');
-        themeToggle.textContent = 'Mode Clair';
         isDarkMode = true;
         localStorage.setItem('theme', 'dark');
     }
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function () {
     function enableLightMode() {
         body.classList.add('light-mode');
         body.classList.remove('dark-mode');
-        themeToggle.textContent = 'Mode Sombre';
         isDarkMode = false;
         localStorage.setItem('theme', 'light');
     }
