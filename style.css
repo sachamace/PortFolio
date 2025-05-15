@@ -1,131 +1,245 @@
-/* style.css - Thème Dark & White Mode avec image de vague en header */
+/* ============================
+   Variables et Thème Global
+============================= */
 :root {
-    --bg-light-mode: #f8f9fa;
-    --bg-dark-mode: #343a40;
-    --text-light-mode: #000;
-    --text-dark-mode: #fff;
-    --accent-color: #87CEEB; /* Bleu ciel */
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    --border-radius: 0.5rem;
-    --transition: all 0.3s ease-in-out;
-    --current-bg: var(--bg-light-mode);
-    --current-text: var(--text-light-mode);
-    --header-height: 100px; /* Hauteur souhaitée pour le header */
+  --bg-light-mode: #f8f9fa;
+  --bg-dark-mode: #343a40;
+  --text-light-mode: #000;
+  --text-dark-mode: #fff;
+  --accent-color: #87CEEB;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --border-radius: 0.5rem;
+  --transition: all 0.3s ease-in-out;
+  --current-bg: var(--bg-light-mode);
+  --current-text: var(--text-light-mode);
+  --header-height: 100px;
 }
 
+/* ============================
+   Body & Mode Sombre/Clair
+============================= */
 body {
-    font-family: sans-serif;
-    color: var(--current-text);
-    background-color: var(--current-bg);
-    line-height: 1.6;
-    margin: 0;
-    padding-top: var(--header-height); /* Pour éviter que le contenu ne soit caché par le header fixe */
-    position: relative;
-    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-}
-
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: var(--header-height);
-    background-image: url('images/vague-header.png'); /* Chemin vers votre image */
-    background-size: cover; /* Pour que l'image couvre tout le header */
-    background-repeat: no-repeat;
-    z-index: 1000;
-    display: flex;
-    align-items: center; /* Centre verticalement le contenu (la nav) */
-}
-p{
-    font-size: 19px;
-}
-.navbar {
-    background-color: transparent !important; /* Transparent pour voir l'image derrière */
-    width: 100%; /* Pour que la nav prenne toute la largeur du header */
-    padding: 0 20px; /* Un peu de marge intérieure */
-}
-
-.navbar-brand {
-    color: var(--text-light-mode); /* Texte en noir par défaut (mode clair) */
-    font-weight: bolder;
-    font-size: 1.75rem;
-}
-
-.navbar-nav .nav-link {
-    color: var(--text-light-mode); /* Texte en noir par défaut */
-    margin-left: 1rem;
-    transition: color 0.2s ease-in-out;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #add8e6; /* Bleu ciel clair au survol */
-}
-
-/* Styles pour le mode sombre */
-.dark-mode {
-    --current-bg: var(--bg-dark-mode);
-    --current-text: var(--text-dark-mode);
-}
-
-.dark-mode .navbar-brand,
-.dark-mode .navbar-nav .nav-link {
-    color: var(--text-dark-mode); /* Texte en blanc en mode sombre */
+  font-family: sans-serif;
+  background-color: var(--current-bg);
+  color: var(--current-text);
+  line-height: 1.6;
+  margin: 0;
+  padding-top: var(--header-height);
+  transition: background-color 0.3s, color 0.3s;
+  overflow-x: hidden;
 }
 
 body.dark-mode {
-    color: var(--text-dark-mode);
+  --current-bg: var(--bg-dark-mode);
+  --current-text: var(--text-dark-mode);
 }
 
-h1.dark-mode, h2.dark-mode, h3.dark-mode, h4.dark-mode, h5.dark-mode, h6.dark-mode {
-    color: var(--text-dark-mode);
+body.light-mode {
+  --current-bg: var(--bg-light-mode);
+  --current-text: var(--text-light-mode);
 }
 
+/* ============================
+   Header et Navbar
+============================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-image: url('images/vague-header.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  background-color: transparent !important;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 1001;
+}
+
+.navbar-brand {
+  font-weight: bolder;
+  font-size: 1.75rem;
+  color: var(--text-light-mode);
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.navbar-nav .nav-link {
+  margin-left: 1rem;
+  transition: color 0.3s;
+  color: var(--current-text);
+}
+
+.navbar-nav .nav-link:hover {
+  color: #add8e6;
+}
+
+.navbar-nav .bx {
+  color: var(--current-text);
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.dark-mode .navbar-brand,
+.dark-mode .navbar-nav .nav-link,
+.dark-mode .navbar-nav .bx {
+  color: var(--text-dark-mode);
+}
+
+.light-mode .navbar-brand,
+.light-mode .navbar-nav .nav-link,
+.light-mode .navbar-nav .bx {
+  color: var(--text-light-mode);
+}
+
+
+/* ============================
+   Sections et Textes
+============================= */
+p {
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  transition: color 0.3s;
+}
+
+/* ============================
+   Service Box
+============================= */
+.service-box {
+  text-align: center;
+  padding: 1rem;
+}
+
+.service-box i {
+  font-size: 2.5rem;
+  color: pink;
+}
+
+.service-box h3 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-top: 0.5rem;
+}
+
+/* ============================
+   Boutons
+============================= */
 .btn {
-    background-color: #87CEEB; /* Bleu ciel */
+  background-color: var(--accent-color);
+  border: none;
+  width: 100%;
+  margin-top: 0.5rem;
 }
-.about__icon {
-    font-size: 19px;  /* Taille de l'icône */
-    color: #4070F4;   /* Couleur de l'icône */
-    margin-right: 1rem; /* Espace à droite de l'icône */
+
+/* ============================
+   Layout Utilitaires (Bootstrap override)
+============================= */
+.text-center { text-align: center !important; }
+.mt-5 { margin-top: 3rem !important; }
+.mt-2 { margin-top: 0.5rem !important; }
+.mx-auto { margin-left: auto !important; margin-right: auto !important; }
+.justify-content-between { justify-content: space-between !important; }
+.justify-content-center { justify-content: center !important; }
+
+/* ============================
+   Cards et Portfolio
+============================= */
+.card {
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  margin-bottom: 1rem;
 }
-.mt-5 {
-    margin-top: 3rem !important;
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: cover;
+  width: 100%;
 }
-.mx-auto {
-    margin-right: auto !important;
-    margin-left: auto !important;
+
+.card-title {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
-.justify-content-between {
-    justify-content: space-between !important;
+
+.card-text {
+  color: inherit;
+  font-size: 0.95rem;
 }
-.justify-content-center {
-    justify-content: center !important;
+
+@media (max-width: 768px) {
+  .card {
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
 }
-.row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: calc(-1* var(--bs-gutter-y));
-    margin-right: calc(-.5* var(--bs-gutter-x));
-    margin-left: calc(-.5* var(--bs-gutter-x));
+
+/* ============================
+   Panneau latéral de projet
+============================= */
+.project-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 350px;
+  max-width: 100%;
+  height: 100%;
+  background-color: var(--current-bg);
+  color: var(--current-text);
+  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  padding: 2rem;
+  transition: right 0.4s ease-in-out;
+  z-index: 1050;
+  overflow-y: auto;
 }
-.text-center {
-    text-align: center !important;
+
+.project-sidebar.visible {
+  right: 0;
 }
-.pink {
-    color: pink; /* ou un code hexadécimal spécifique comme #FF69B4 */
+
+.project-sidebar img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
 }
-.fw-light {
-    font-weight: 300 !important;
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--current-text);
+  cursor: pointer;
 }
-.fs-5 {
-    font-size: 1.25rem !important;
-}
-.mt-2 {
-    margin-top: .5rem !important;
-}
-.h3, h3 {
-    font-size: calc(1.3rem + .6vw);
+
+/* ============================
+   Responsive Grid pour Portfolio
+============================= */
+@media (max-width: 992px) {
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }

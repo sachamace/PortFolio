@@ -30,4 +30,29 @@ document.addEventListener('DOMContentLoaded', function () {
     if (savedTheme === 'dark') {
         enableDarkMode();
     }
+    // Gestion de l'affichage des détails du projet
+  const projectCards = document.querySelectorAll('.project-card');
+  const sidebar = document.getElementById('project-sidebar');
+  const closeBtn = document.getElementById('close-sidebar');
+  const sidebarTitle = document.getElementById('sidebar-title');
+  const sidebarDesc = document.getElementById('sidebar-description');
+  const sidebarImage = document.getElementById('sidebar-image');
+
+  projectCards.forEach(card => {
+    card.querySelector('.show-details').addEventListener('click', () => {
+      const title = card.dataset.title;
+      const description = card.dataset.description;
+      const image = card.dataset.image;
+
+      sidebarTitle.textContent = title;
+      sidebarDesc.textContent = description;
+      sidebarImage.src = image;
+      sidebar.classList.add('visible');
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    sidebar.classList.remove('visible');
+  });
 });
+
