@@ -38,18 +38,20 @@ document.addEventListener('DOMContentLoaded', function () {
   const sidebarDesc = document.getElementById('sidebar-description');
   const sidebarImage = document.getElementById('sidebar-image');
   const sidebarLink = document.getElementById('sidebar-link');
-
+  const sidebarGit = document.getElementById('sidebar-git');
   projectCards.forEach(card => {
     card.querySelector('.show-details').addEventListener('click', () => {
       const title = card.dataset.title;
       const description = card.dataset.description;
       const image = card.dataset.image;
       const link = card.dataset.link; 
+      const git = card.dataset.git;
 
       sidebarTitle.textContent = title;
       sidebarDesc.textContent = description;
       sidebarImage.src = image;
       sidebarLink.href = link;
+      sidebarLink.href = git ;
       sidebar.classList.add('visible');
     });
   });
