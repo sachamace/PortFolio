@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const sidebarImage = document.getElementById('sidebar-image');
   const sidebarLink = document.getElementById('sidebar-link');
   const sidebarGit = document.getElementById('sidebar-git');
+
   projectCards.forEach(card => {
     card.querySelector('.show-details').addEventListener('click', () => {
       const title = card.dataset.title;
@@ -51,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
       sidebarDesc.textContent = description;
       sidebarImage.src = image;
       sidebarLink.href = link;
-      sidebarLink.href = git ;
+      sidebarGit.href = git ;
       sidebar.classList.add('visible');
     });
   });
