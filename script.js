@@ -37,16 +37,19 @@ document.addEventListener('DOMContentLoaded', function () {
   const sidebarTitle = document.getElementById('sidebar-title');
   const sidebarDesc = document.getElementById('sidebar-description');
   const sidebarImage = document.getElementById('sidebar-image');
+  const sidebarLink = document.getElementById('sidebar-link');
 
   projectCards.forEach(card => {
     card.querySelector('.show-details').addEventListener('click', () => {
       const title = card.dataset.title;
       const description = card.dataset.description;
       const image = card.dataset.image;
+      const link = card.dataset.link; 
 
       sidebarTitle.textContent = title;
       sidebarDesc.textContent = description;
       sidebarImage.src = image;
+      sidebarLink.href = link;
       sidebar.classList.add('visible');
     });
   });
