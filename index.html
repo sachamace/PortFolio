@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +44,8 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-md text-center">
-            <img src="images/data.jpeg" alt="Votre photo" class="rounded-circle img-fluid mb-3" style="max-width: 150px;">
+            <img src="images/data.jpeg" alt="Votre photo" class="rounded-circle img-fluid mb-3"
+              style="max-width: 150px;">
             <p class="lead">Salut ! Je suis Sacha, étudiant en informatiques, passionné d'informatique.</p>
           </div>
         </div>
@@ -55,7 +57,8 @@
       <h2 class="mb-4 text-center">A propos de moi !</h2>
       <div class="row">
         <div class="col-md text-center">
-          <p>A 18 ans, je suis un étudiant en informatique. Je suis actuellement en formation pour devenir technicien supérieur informatique.</p>
+          <p>A 18 ans, je suis un étudiant en informatique. Je suis actuellement en formation pour devenir technicien
+            supérieur informatique.</p>
 
           <div class="row justify-content-center justify-content-between mt-5 mx-auto">
             <!-- Exemple d'un seul bloc -->
@@ -91,58 +94,56 @@
 
 
     <!-- Portfolio -->
-<section id="portfolio" class="py-5">
-  <h2 class="mb-4 text-center">Projets</h2>
-  <div class="row">
-    <!-- Exemple d'un projet -->
-    <div class="col-md-6 mb-4">
-      <div class="card shadow-sm project-card"
-           data-title="Fit Finder"
-           data-description="Nous avons essayé de répondre au besoin d’un fan de sport qui souhaiterait se tenir informé sur l’actualité sportive. Le développement de ce moteur de recherche
+    <section id="portfolio" class="py-5">
+      <h2 class="mb-4 text-center">Projets</h2>
+      <div class="row">
+        <!-- Exemple d'un projet -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm project-card" data-title="Fit Finder"
+            data-description="Nous avons essayé de répondre au besoin d’un fan de sport qui souhaiterait se tenir informé sur l’actualité sportive. Le développement de ce moteur de recherche
                               « dédié », nous est apparu comme une évidence.
                               L’objectif de FitFinder est donc de simplifier les recherches d’une personne qui voudrait rapidement et uniquement de l’information sportive"
-           data-image = "images/presence-referencement-google.jpg"
-           data-link="https://depot.trophees-nsi.fr/uploads/Etoj9jUG2zXpHwP50z5aTEiWiwQpJn9Z3EO7dgEa.pdf"
-           data-git = "https://gitlab.com/trophees-nsi/projet/-/tree/5df947a69098ab2fb817f16b779429e68b9e17fe/">
-        <img src="images/presence-referencement-google.jpg" class="card-img-top" alt="Fit Finder">
-        <div class="card-body">
-          <h5 class="card-title">Fit Finder</h5>
-          <p class="card-text"> Un moteur de recherche en lien avec le sport.</p>
-          <button class="btn btn-primary show-details">Voir les détails</button>
+            data-image="images/presence-referencement-google.jpg"
+            data-link="https://depot.trophees-nsi.fr/uploads/Etoj9jUG2zXpHwP50z5aTEiWiwQpJn9Z3EO7dgEa.pdf"
+            data-git="https://gitlab.com/trophees-nsi/projet/-/tree/5df947a69098ab2fb817f16b779429e68b9e17fe/">
+            <img src="images/presence-referencement-google.jpg" class="card-img-top" alt="Fit Finder">
+            <div class="card-body">
+              <h5 class="card-title">Fit Finder</h5>
+              <p class="card-text"> Un moteur de recherche en lien avec le sport.</p>
+              <button class="btn btn-primary show-details">Voir les détails</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tu peux dupliquer ce bloc pour chaque projet -->
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm project-card" data-title="Snake"
+            data-description="Le snake, de l'anglais signifiant « serpent », est un genre de jeu vidéo dans lequel le joueur dirige un serpent qui grandit et constitue ainsi lui-même un obstacle"
+            data-image="images\google-snake-jeu.png" data-git="https://github.com/sachamace/SNAKEGAME">
+            <img src="images\google-snake-jeu.png" class="card-img-top" alt="Snake">
+            <div class="card-body">
+              <h5 class="card-title">Snake</h5>
+              <p class="card-text">Jeu du serpent</p>
+              <button class="btn btn-primary show-details">Voir les détails</button>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Panneau latéral pour détails du projet -->
+    <div id="project-sidebar" class="project-sidebar">
+      <button id="close-sidebar" class="close-btn" aria-label="Fermer">×</button>
+      <img id="sidebar-image" src="images/presence-referencement-google.jpg" alt="Image projet">
+      <h3 id="sidebar-title"></h3>
+      <p id="sidebar-description"></p>
+      <a id="sidebar-link" target="_blank">Voir le projet</a>
+      <br>
+      <a id="sidebar-git" target="_blank">Lien GITLAB</a>
     </div>
 
-    <!-- Tu peux dupliquer ce bloc pour chaque projet -->
-    <div class="col-md-6 mb-4">
-      <div class="card shadow-sm project-card"
-           data-title="Snake"
-           data-description="Le snake, de l'anglais signifiant « serpent », est un genre de jeu vidéo dans lequel le joueur dirige un serpent qui grandit et constitue ainsi lui-même un obstacle"
-           data-image = "images\google-snake-jeu.png"
-           data-git = "https://github.com/sachamace/SNAKEGAME">
-        <img src="images\google-snake-jeu.png" class="card-img-top" alt="Snake">
-        <div class="card-body">
-          <h5 class="card-title">Snake</h5>
-          <p class="card-text">Jeu du serpent</p>
-          <button class="btn btn-primary show-details">Voir les détails</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Panneau latéral pour détails du projet -->
-<div id="project-sidebar" class="project-sidebar">
-  <button id="close-sidebar" class="close-btn" aria-label="Fermer">×</button>
-  <img id="sidebar-image" src="images/presence-referencement-google.jpg" alt="Image projet">
-  <h3 id="sidebar-title"></h3>
-  <p id="sidebar-description"></p>
-  <a id="sidebar-link"  target="_blank">Voir le projet</a>
-  <br>
-  <a id="sidebar-git" target="_blank">Lien GITLAB</a>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
