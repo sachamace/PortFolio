@@ -61,36 +61,19 @@ document.addEventListener('DOMContentLoaded', function () {
     sidebar.classList.remove('visible');
   });
 
-  const widget = document.currentScript.previousElementSibling;   // la div.skills-widget
-  const panel = widget.querySelector('.skills-panel');
-  const tabs = widget.querySelectorAll('.skills-tabs button');
+  /* ----- Filtrage des technologies ----- */
+  const techButtons = document.querySelectorAll('.filter-btn');
+  const techCards = document.querySelectorAll('.tech-card');
 
-  // état : scores pour chaque compétence
-  const scores = { html: 0, css: 0, js: 0 };
-
-  // construit les 5 barres
-  function renderBars(skill) {
-    panel.innerHTML = '';
-    for (let i = 1; i <= 5; i++) {
-      const bar = document.createElement('div');
-      bar.className = 'skills-bar' + (i <= scores[skill] ? ' filled' : '');
-      bar.title = `${i}/5`;
-      bar.onclick = () => { scores[skill] = i; renderBars(skill); };
-      panel.appendChild(bar);
-    }
-  }
-
-  // gestion des onglets
-  tabs.forEach(btn => {
-    btn.addEventListener('click', e => {
-      tabs.forEach(b => b.classList.toggle('active', b === btn));
-      widget.dataset.skill = btn.dataset.skill;
-      renderBars(btn.dataset.skill);
+  techButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // état visuel onglet actif
+      techButtons.forEach(b => b.classList.toggle('active', b === btn));
+      const cat = btn.dataset.filter;
+      techCards.forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+      });
     });
   });
-
-  // premier affichage
-  renderBars(widget.dataset.skill);
-
 });
 

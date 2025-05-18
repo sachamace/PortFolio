@@ -111,7 +111,12 @@ p {
   font-size: 1rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   transition: color 0.3s;
 }
 
@@ -147,12 +152,30 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================
    Layout Utilitaires (Bootstrap override)
 ============================= */
-.text-center { text-align: center !important; }
-.mt-5 { margin-top: 3rem !important; }
-.mt-2 { margin-top: 0.5rem !important; }
-.mx-auto { margin-left: auto !important; margin-right: auto !important; }
-.justify-content-between { justify-content: space-between !important; }
-.justify-content-center { justify-content: center !important; }
+.text-center {
+  text-align: center !important;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.justify-content-between {
+  justify-content: space-between !important;
+}
+
+.justify-content-center {
+  justify-content: center !important;
+}
 
 /* ============================
    Cards et Portfolio
@@ -206,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
   height: 100%;
   background-color: var(--current-bg);
   color: var(--current-text);
-  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
   padding: 2rem;
   transition: right 0.4s ease-in-out;
   z-index: 1050;
@@ -241,58 +264,43 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.skills-widget{
-    width: 280px;
-    border: 2px solid #ddd;
-    border-radius: 12px;
-    font-family: system-ui, sans-serif;
-    padding: 1rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,.06);
-    margin-inline:auto; 
-
-}
-.skills-wrapper{
-  display:flex;           
-  justify-content:center; 
-  min-height:100vh;       
-  text-align:center;
-}
-/* barre d’onglets */
-.skills-tabs{
-  display: flex;
-  
-  gap: .5rem;
-  margin-bottom: 1rem;
-}
-.skills-tabs button{
-  flex: 1;
-  padding: .4rem .6rem;
-  border: 0;
-  border-radius: 8px;
-  background:#f2f2f2;
-  cursor:pointer;
-  transition: background .2s;
-}
-.skills-tabs button.active,
-.skills-tabs button:hover{
-  background:#0077ff;
-  color:#fff;
+/* === Technologies === */
+.dark-mode-bg {
+  background: var(--text-dark-mode);
 }
 
-/* zone d’affichage du barème */
-.skills-panel{
-  display:flex;
-  gap:.4rem;
-  justify-content:center;
+.dark-mode-card {
+  background: var(--text-dark-mode);
 }
-.skills-bar{
-  width:32px;
-  height:32px;
-  border-radius:6px;
-  background:#e0e0e0;
-  cursor:pointer;
-  transition:background .2s;
+
+.dark-mode-text {
+  color: #000;
 }
-.skills-bar.filled{
-  background:#ffd43b;
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: #0d6efd;
+  color: #fff;
+}
+
+.level-fill,
+.level-empty {
+  width: 22px;
+  height: 8px;
+  border-radius: 4px;
+  margin-left: 2px;
+}
+
+.level-fill {
+  background: #0d6efd;
+}
+
+.level-empty {
+  background: #ced4da;
+}
+
+/* transition douce pour dark‑mode déjà présent */
+#skills,
+#skills * {
+  transition: .3s, color .3s;
 }
