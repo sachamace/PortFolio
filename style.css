@@ -55,47 +55,87 @@ header {
   display: flex;
   align-items: center;
 }
-p{
-    font-size: 19px;
-}
+
 .navbar {
-    background-color: transparent !important; /* Transparent pour voir l'image derrière */
-    width: 100%; /* Pour que la nav prenne toute la largeur du header */
-    padding: 0 20px; /* Un peu de marge intérieure */
+  background-color: transparent !important;
+  width: 100%;
+  padding: 0 20px;
+  z-index: 1001;
 }
+
 .navbar-brand {
-    color: var(--text-light-mode); /* Texte en noir par défaut (mode clair) */
-    font-weight: bolder;
-    font-size: 1.75rem;
+  font-weight: bolder;
+  font-size: 1.75rem;
+  color: var(--text-light-mode);
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .navbar-nav .nav-link {
-    color: var(--text-light-mode); /* Texte en noir par défaut */
-    margin-left: 1rem;
-    transition: color 0.2s ease-in-out;
+  margin-left: 1rem;
+  transition: color 0.3s;
+  color: var(--current-text);
 }
 
 .navbar-nav .nav-link:hover {
   color: #add8e6;
 }
 
-/* Styles pour le mode sombre */
-.dark-mode {
-    --current-bg: var(--bg-dark-mode);
-    --current-text: var(--text-dark-mode);
+.navbar-nav .bx {
+  color: var(--current-text);
+  font-size: 1.5rem;
+  transition: color 0.3s;
 }
 
 .dark-mode .navbar-brand,
-.dark-mode .navbar-nav .nav-link {
-    color: var(--text-dark-mode); /* Texte en blanc en mode sombre */
+.dark-mode .navbar-nav .nav-link,
+.dark-mode .navbar-nav .bx {
+  color: var(--text-dark-mode);
 }
 
-body.dark-mode {
-    color: var(--text-dark-mode);
+.light-mode .navbar-brand,
+.light-mode .navbar-nav .nav-link,
+.light-mode .navbar-nav .bx {
+  color: var(--text-light-mode);
 }
 
-h1.dark-mode, h2.dark-mode, h3.dark-mode, h4.dark-mode, h5.dark-mode, h6.dark-mode {
-    color: var(--text-dark-mode);
+
+/* ============================
+   Sections et Textes
+============================= */
+p {
+  font-size: 1rem;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  transition: color 0.3s;
+}
+
+/* ============================
+   Service Box
+============================= */
+.service-box {
+  text-align: center;
+  padding: 1rem;
+}
+
+.service-box i {
+  font-size: 2.5rem;
+  color: pink;
+}
+
+.service-box h3 {
+  font-size: 1.25rem;
+  font-weight: 300;
+  margin-top: 0.5rem;
 }
 
 /* ============================
@@ -204,18 +244,60 @@ h1.dark-mode, h2.dark-mode, h3.dark-mode, h4.dark-mode, h5.dark-mode, h6.dark-mo
   height: auto;
   margin-bottom: 1rem;
 }
-.pink {
-    color: pink; /* ou un code hexadécimal spécifique comme #FF69B4 */
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--current-text);
+  cursor: pointer;
 }
-.fw-light {
-    font-weight: 300 !important;
+
+@media (max-width: 992px) {
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }
-.fs-5 {
-    font-size: 1.25rem !important;
+/* === Technologies === */
+.dark-mode-bg {
+  background: var(--text-dark-mode);
 }
-.mt-2 {
-    margin-top: .5rem !important;
+
+.dark-mode-card {
+  background: var(--text-dark-mode);
 }
-.h3, h3 {
-    font-size: calc(1.3rem + .6vw);
+
+.dark-mode-text {
+  color: #000;
+}
+.filter-btn.active,
+.filter-btn:hover {
+  background: #0d6efd;
+  color: #fff;
+}
+/* barre d’onglets */
+.level-fill,
+.level-empty {
+  width: 22px;
+  height: 8px;
+  border-radius: 4px;
+  margin-left: 2px;
+}
+
+.level-fill {
+  background: #0d6efd;
+}
+
+.level-empty {
+  background: #ced4da;
+}
+
+/* transition douce pour dark‑mode déjà présent */
+#skills,
+#skills * {
+  transition: .3s, color .3s;
 }
