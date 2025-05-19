@@ -13,12 +13,8 @@
     <header>
         <nav class="navbar navbar-expand-lg fixed-top">
             <div class="container">
-                <a class="navbar-brand" href="#accueil">Sacha Macé</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
+                <div class="navbar-brand">
+                    <ul class="navbar-nav ms-auto" id ="nav_list">
                         <li class="nav-item">
                             <a class='bx  bx-home-alt-2' class="nav-link" href="#a-propos"></a> 
                         </li>
@@ -32,10 +28,10 @@
                             <a class='bx  bx-book' class="nav-link" href="#portfolio"></a> 
                         </li>
                         <li class="nav-item">
-                            <i class='bx  bx-envelope' class="nav-link" href="#contact"></i> 
+                            <a class='bx  bx-envelope' class="nav-link" href="#contact" width = ></a> 
                         </li>
                         <li class="nav-item">
-                            <i class='bx  bx-moon' id="theme-toggle" class="nav-link btn btn-link" ></i> 
+                            <a class='bx  bx-moon change-theme' id="theme-toggle" class="nav-link btn btn-link" ></a> 
                         </li>
                     </ul>
                 </div>
@@ -46,7 +42,12 @@
     <div class="container mt-5 pt-3">
         <section id="accueil" class="py-5 text-center">
             <div class="container">
+                
                 <div class="row justify-content-center">
+                    <h1>Sacha Macé</h1>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
                     <div class="col-md text-center">
                         <img src="images/data.jpeg" alt="Votre photo" class="rounded-circle img-fluid mb-3" style="max-width: 150px;">
                         <p class="lead">Salut ! Je suis Sacha, étudiant en informatiques, passionné d'informatique.</p>
@@ -153,14 +154,6 @@
             </div>
         </section>
     </div>
-
-    <footer class="bg-dark text-white py-3 text-center">
-        <div class="container">
-            <p>&copy; 2025 Sacha. Tous droits réservés.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

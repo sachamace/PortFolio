@@ -40,19 +40,33 @@ header {
 p{
     font-size: 19px;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
+
 .navbar {
-    background-color: transparent !important; /* Transparent pour voir l'image derrière */
+    background-color: #87CEEB;
     width: 100%; /* Pour que la nav prenne toute la largeur du header */
     padding: 0 20px; /* Un peu de marge intérieure */
 }
-
 .navbar-brand {
-    color: var(--text-light-mode); /* Texte en noir par défaut (mode clair) */
-    font-weight: bolder;
-    font-size: 1.75rem;
+    background-color: hsla(var(--second-hue), 32%, 16%, .8);
+    width: 90%;
+    border-radius: 4rem;
+    padding: 1rem 2.25rem;
+    backdrop-filter: blur(10px);
+    transition: .4s;
 }
 
 .navbar-nav .nav-link {
+    bottom: 1rem;
+    background-color: hsla(var(--second-hue), 32%, 16%, .8);
+    width: 90%;
+    border-radius: 4rem;
+    padding: 1rem 2.25rem;
+    backdrop-filter: blur(10px);
+    transition: .4s;
     color: var(--text-light-mode); /* Texte en noir par défaut */
     margin-left: 1rem;
     transition: color 0.2s ease-in-out;
@@ -66,10 +80,11 @@ p{
 .dark-mode {
     --current-bg: var(--bg-dark-mode);
     --current-text: var(--text-dark-mode);
+
 }
 
 .dark-mode .navbar-brand,
-.dark-mode .navbar-nav .nav-link {
+.dark-mode .navbar-nav .nav-link a {
     color: var(--text-dark-mode); /* Texte en blanc en mode sombre */
 }
 
@@ -77,7 +92,7 @@ body.dark-mode {
     color: var(--text-dark-mode);
 }
 
-h1.dark-mode, h2.dark-mode, h3.dark-mode, h4.dark-mode, h5.dark-mode, h6.dark-mode {
+h1.dark-mode, h2.dark-mode, h3.dark-mode, h4.dark-mode, h5.dark-mode, h6.dark-mode a.dark-mode{
     color: var(--text-dark-mode);
 }
 
@@ -116,12 +131,6 @@ h1.dark-mode, h2.dark-mode, h3.dark-mode, h4.dark-mode, h5.dark-mode, h6.dark-mo
 }
 .pink {
     color: pink; /* ou un code hexadécimal spécifique comme #FF69B4 */
-}
-.fw-light {
-    font-weight: 300 !important;
-}
-.fs-5 {
-    font-size: 1.25rem !important;
 }
 .mt-2 {
     margin-top: .5rem !important;
