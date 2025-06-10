@@ -1,49 +1,41 @@
-/* ============================
-   Variables et Thème Global
-============================= */
+/* Variables CSS */
 :root {
-  --bg-light-mode: #f8f9fa;
-  --bg-dark-mode: #343a40;
-  --text-light-mode: #000;
-  --text-dark-mode: #fff;
-  --accent-color: #87CEEB;
+  --bg-light: #f8f9fa;
+  --bg-dark: #343a40;
+  --text-light: #000;
+  --text-dark: #fff;
+  --accent: #87CEEB;
+  --primary: #667eea;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   --shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
   --border-radius: 0.5rem;
   --transition: all 0.3s ease-in-out;
   --header-height: 100px;
-  
-  /* Variables pour les skills cards */
-  --primary-color: #667eea;
-  --secondary-color: #764ba2;
-  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  --card-hover-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-  --card-shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.4);
-  --card-hover-shadow-dark: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
-/* ============================
-   Body & Mode Sombre/Clair
-============================= */
+/* Base */
+* {
+  transition: var(--transition);
+}
+
 body {
   font-family: sans-serif;
-  background-color: var(--bg-light-mode);
-  color: var(--text-light-mode);
+  background-color: var(--bg-light);
+  color: var(--text-light);
   line-height: 1.6;
   margin: 0;
   padding-top: var(--header-height);
-  transition: background-color 0.3s, color 0.3s;
   overflow-x: hidden;
 }
 
 body.dark-mode {
-  background-color: var(--bg-dark-mode);
-  color: var(--text-dark-mode);
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 
-/* ============================
-   Header et Navbar
-============================= */
+/* Header & Navigation */
 header {
   position: fixed;
   top: 0;
@@ -66,22 +58,19 @@ header {
 }
 
 .navbar-brand {
-  font-weight: bolder;
+  font-weight: bold;
   font-size: 1.75rem;
-  color: var(--text-light-mode);
-  transition: color 0.3s;
+  color: var(--text-light);
 }
 
 .navbar-nav {
   display: flex;
-  flex-direction: row;
   align-items: center;
 }
 
 .navbar-nav .nav-link {
   margin-left: 1rem;
-  transition: color 0.3s;
-  color: var(--text-light-mode);
+  color: var(--text-light);
 }
 
 .navbar-nav .nav-link:hover {
@@ -89,112 +78,56 @@ header {
 }
 
 .navbar-nav .bx {
-  color: var(--text-light-mode);
+  color: var(--text-light);
   font-size: 1.5rem;
-  transition: color 0.3s;
 }
 
-/* Mode sombre pour la navbar */
 .dark-mode .navbar-brand,
 .dark-mode .navbar-nav .nav-link,
 .dark-mode .navbar-nav .bx {
-  color: var(--text-dark-mode);
+  color: var(--text-dark);
 }
 
-/* ============================
-   Sections et Textes
-============================= */
-p {
-  font-size: 1rem;
-  transition: color 0.3s;
+/* Composants de Base */
+.btn {
+  background-color: var(--accent);
+  border: none;
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  transition: color 0.3s;
+.dark-mode .btn {
+  color: var(--text-light);
 }
 
-/* ============================
-   Service Box
-============================= */
 .service-box {
   text-align: center;
   padding: 1rem;
-  transition: background-color 0.3s, color 0.3s;
 }
 
 .service-box i {
   font-size: 2.5rem;
   color: pink;
-  transition: color 0.3s;
 }
 
 .service-box h3 {
   font-size: 1.25rem;
   font-weight: 300;
   margin-top: 0.5rem;
-  transition: color 0.3s;
 }
 
-/* ============================
-   Boutons
-============================= */
-.btn {
-  background-color: var(--accent-color);
-  border: none;
-  width: 100%;
-  margin-top: 0.5rem;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* Mode sombre pour les boutons */
-.dark-mode .btn {
-  color: var(--text-light-mode);
-}
-
-/* ============================
-   Layout Utilitaires (Bootstrap override)
-============================= */
-.text-center {
-  text-align: center !important;
-}
-
-.mt-5 {
-  margin-top: 3rem !important;
-}
-
-.mt-2 {
-  margin-top: 0.5rem !important;
-}
-
-.mx-auto {
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-.justify-content-between {
-  justify-content: space-between !important;
-}
-
-.justify-content-center {
-  justify-content: center !important;
-}
-
-/* ============================
-   Cards et Portfolio
-============================= */
+/* Cards */
 .card {
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   overflow: hidden;
   margin-bottom: 1rem;
   background-color: #fff;
-  transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
-/* Mode sombre pour les cards */
 .dark-mode .card {
   background-color: #495057;
-  color: var(--text-dark-mode);
+  color: var(--text-dark);
   box-shadow: var(--shadow-dark);
 }
 
@@ -207,114 +140,36 @@ h1, h2, h3, h4, h5, h6 {
 .card-title {
   font-weight: bold;
   font-size: 1.2rem;
-  transition: color 0.3s;
 }
 
 .card-text {
   color: inherit;
   font-size: 0.95rem;
-  transition: color 0.3s;
 }
 
 .dark-mode .card-text {
-  color: var(--text-dark-mode);
+  color: var(--text-dark);
 }
 
-@media (max-width: 768px) {
-  .card {
-    margin-bottom: 1.5rem;
-  }
-
-  .card-title {
-    font-size: 1rem;
-  }
-
-  .card-text {
-    font-size: 0.9rem;
-  }
-}
-
-/* ============================
-   Panneau latéral de projet
-============================= */
-.project-sidebar {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 350px;
-  max-width: 100%;
-  height: 100%;
-  background-color: var(--bg-light-mode);
-  color: var(--text-light-mode);
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
-  padding: 2rem;
-  transition: right 0.4s ease-in-out, background-color 0.3s, color 0.3s;
-  z-index: 1050;
-  overflow-y: auto;
-}
-
-/* Mode sombre pour le sidebar */
-.dark-mode .project-sidebar {
-  background-color: var(--bg-dark-mode);
-  color: var(--text-dark-mode);
-}
-
-.project-sidebar.visible {
-  right: 0;
-}
-
-.project-sidebar img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  font-size: 1.5rem;
-  background: none;
-  border: none;
-  color: var(--text-light-mode);
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.dark-mode .close-btn {
-  color: var(--text-dark-mode);
-}
-
-@media (max-width: 992px) {
-  .col-md-6 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-
-/* ============================
-   Section Skills Moderne
-============================= */
+/* Section Skills */
 .skills-section {
-  background-color: var(--bg-light-mode);
+  background-color: var(--bg-light);
   border: 1px solid rgba(135, 206, 235, 0.3);
   border-radius: 20px;
   margin: 2rem auto;
   max-width: 1200px;
-  box-shadow: var(--card-shadow);
+  box-shadow: var(--shadow-card);
   padding: 2rem;
-  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
-/* Mode sombre pour la section skills */
 .dark-mode .skills-section {
-  background-color: var(--bg-dark-mode);
+  background-color: var(--bg-dark);
   border-color: rgba(135, 206, 235, 0.5);
-  box-shadow: var(--card-shadow-dark);
+  box-shadow: var(--shadow-dark);
 }
 
 .section-title {
-  background: linear-gradient(135deg, var(--accent-color), #667eea);
+  background: linear-gradient(135deg, var(--accent), var(--primary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -333,26 +188,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .filter-btn {
-  background-color: var(--bg-light-mode);
-  border: 2px solid var(--accent-color);
-  color: var(--text-light-mode);
+  background-color: var(--bg-light);
+  border: 2px solid var(--accent);
+  color: var(--text-light);
   padding: 0.75rem 1.5rem;
   border-radius: 50px;
   font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Mode sombre pour les filtres */
 .dark-mode .filter-btn {
-  background-color: var(--bg-dark-mode);
-  color: var(--text-dark-mode);
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-  background: var(--accent-color);
-  color: var(--text-light-mode);
+  background: var(--accent);
+  color: var(--text-light);
   transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(135, 206, 235, 0.4);
 }
@@ -364,20 +218,21 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .skill-card {
-  background-color: var(--bg-light-mode);
+  background-color: var(--bg-light);
   border: 1px solid rgba(135, 206, 235, 0.2);
   border-radius: 16px;
   padding: 2rem;
   text-align: center;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
   box-shadow: var(--shadow);
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Mode sombre pour les skill cards */
 .dark-mode .skill-card {
-  background-color: var(--bg-dark-mode);
+  background-color: var(--bg-dark);
   border-color: rgba(135, 206, 235, 0.3);
   box-shadow: var(--shadow-dark);
 }
@@ -390,21 +245,16 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.1), transparent);
-  transition: left 0.5s;
+  transition: left 
 }
-
-.skill-card:hover::before {
-  left: 100%;
-}
-
 .skill-card:hover {
   transform: translateY(-10px) scale(1.02);
-  box-shadow: var(--card-hover-shadow);
-  border-color: var(--accent-color);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--accent);
 }
 
 .dark-mode .skill-card:hover {
-  box-shadow: var(--card-hover-shadow-dark);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
 }
 
 .skill-icon {
@@ -419,19 +269,18 @@ h1, h2, h3, h4, h5, h6 {
 .skill-name {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--text-light-mode);
+  color: var(--text-light);
   margin-bottom: 0.5rem;
-  transition: color 0.3s;
 }
 
 .dark-mode .skill-name {
-  color: var(--text-dark-mode);
+  color: var(--text-dark);
 }
 
 .skill-category {
   display: inline-block;
-  background: var(--accent-color);
-  color: var(--text-light-mode);
+  background: var(--accent);
+  color: var(--text-light);
   padding: 0.4rem 1rem;
   border-radius: 20px;
   font-size: 0.8rem;
@@ -440,70 +289,304 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.5px;
 }
 
-/* Couleurs spécifiques pour chaque technologie */
-.skill-card[data-cat="backend"] .skill-icon {
-  color: #00758F;
+/* Couleurs des icônes par catégorie */
+.skill-card[data-cat="backend"] .skill-icon { color: #00758F; }
+.skill-card[data-cat="language"] .skill-icon.dart { color: #0175C2; }
+.skill-card[data-cat="language"] .skill-icon.python { color: #3776AB; }
+.skill-card[data-cat="language"] .skill-icon.c { color: #A8B9CC; }
+.skill-card[data-cat="language"] .skill-icon.java { color: #ED8B00; }
+.skill-card[data-cat="DevOps"] .skill-icon.docker { color: #2496ED; }
+.skill-card[data-cat="DevOps"] .skill-icon.terminal { color: #4EAA25; }
+.skill-card[data-cat="DevOps"] .skill-icon.git { color: #F05032; }
+.skill-card[data-cat="Tools"] .skill-icon.trello { color: #0079BF; }
+.skill-card[data-cat="Tools"] .skill-icon.figma { color: #F24E1E; }
+.skill-card[data-cat="Tools"] .skill-icon.android { color: #3DDC84; }
+.skill-card[data-cat="Tools"] .skill-icon.vscode { color: #007ACC; }
+.skill-card[data-cat="Tools"] .skill-icon.premiere { color: #9999FF; }
+.skill-card[data-cat="Tools"] .skill-icon.scenebuilder { color: #ED8B00; }
+
+/* ============================
+   Section Portfolio
+============================= */
+#portfolio {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 20px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 3rem 2rem;
 }
 
-.skill-card[data-cat="language"] .skill-icon.dart {
-  color: #0175C2;
+.dark-mode #portfolio {
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
 }
 
-.skill-card[data-cat="language"] .skill-icon.python {
-  color: #3776AB;
+#portfolio h2 {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
 }
 
-.skill-card[data-cat="language"] .skill-icon.c {
-  color: #A8B9CC;
+#portfolio h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
 }
 
-.skill-card[data-cat="language"] .skill-icon.java {
-  color: #ED8B00;
+.project-card {
+  border: none !important;
+  border-radius: 20px !important;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(10px);
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideInUp 0.6s ease forwards;
 }
 
-.skill-card[data-cat="DevOps"] .skill-icon.docker {
-  color: #2496ED;
+.dark-mode .project-card {
+  background: rgba(73, 80, 87, 0.9) !important;
+  color: var(--text-dark);
 }
 
-.skill-card[data-cat="DevOps"] .skill-icon.terminal {
-  color: #4EAA25;
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(135, 206, 235, 0.1), transparent);
+  transition: left 0.6s;
+  z-index: 1;
 }
 
-.skill-card[data-cat="DevOps"] .skill-icon.git {
-  color: #F05032;
+.project-card:hover::before {
+  left: 100%;
 }
 
-.skill-card[data-cat="Tools"] .skill-icon.trello {
-  color: #0079BF;
+.project-card:hover {
+  transform: translateY(-15px) scale(1.03) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15) !important;
 }
 
-.skill-card[data-cat="Tools"] .skill-icon.figma {
-  color: #F24E1E;
+.dark-mode .project-card:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4) !important;
 }
 
-.skill-card[data-cat="Tools"] .skill-icon.android {
-  color: #3DDC84;
+.project-card .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s;
+  position: relative;
+  z-index: 2;
 }
 
-.skill-card[data-cat="Tools"] .skill-icon.vscode {
-  color: #007ACC;
+.project-card:hover .card-img-top {
+  transform: scale(1.05);
 }
 
-.skill-card[data-cat="Tools"] .skill-icon.premiere {
-  color: #9999FF;
+.project-card .card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 2;
 }
 
-.skill-card[data-cat="Tools"] .skill-icon.scenebuilder {
-  color: #ED8B00;
+.project-card .card-title {
+  font-size: 1.4rem !important;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #2c3e50;
 }
 
-/* Animation d'apparition */
-.skill-card {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 0.6s ease forwards;
+.dark-mode .project-card .card-title {
+  color: var(--text-dark) !important;
 }
 
+.project-card .card-text {
+  flex-grow: 1;
+  margin-bottom: 1.5rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.dark-mode .project-card .card-text {
+  color: #bbb !important;
+}
+
+.show-details {
+  background: linear-gradient(135deg, var(--accent), var(--primary)) !important;
+  border: none !important;
+  border-radius: 50px !important;
+  padding: 0.75rem 2rem !important;
+  font-weight: 600;
+  color: white !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  margin-top: auto;
+  width: auto !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.show-details:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(135, 206, 235, 0.4) !important;
+  color: white !important;
+}
+
+/* ============================
+   Sidebar Projet
+============================= */
+.project-sidebar {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 400px;
+  max-width: 90vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(20px);
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.2) !important;
+  padding: 2rem;
+  transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1050;
+  overflow-y: auto;
+  border-left: 3px solid var(--accent);
+}
+
+.dark-mode .project-sidebar {
+  background: rgba(52, 58, 64, 0.95) !important;
+  color: var(--text-dark);
+}
+
+.project-sidebar.visible {
+  right: 0;
+}
+
+.project-sidebar img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 1.5rem;
+}
+
+.project-sidebar h3 {
+  color: #2c3e50 !important;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.dark-mode .project-sidebar h3 {
+  color: var(--text-dark) !important;
+}
+
+.project-sidebar p {
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.dark-mode .project-sidebar p {
+  color: #bbb !important;
+}
+
+.sidebar-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.sidebar-link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(135deg, var(--accent), var(--primary)) !important;
+  color: white !important;
+  text-decoration: none !important;
+  border-radius: 50px;
+  font-weight: 600;
+  text-align: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(135, 206, 235, 0.4);
+  color: white !important;
+  text-decoration: none !important;
+}
+
+.sidebar-link i {
+  font-size: 1.1rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(220, 53, 69, 0.1);
+  border: none;
+  color: #dc3545;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.close-btn:hover {
+  background: #dc3545;
+  color: white;
+  transform: rotate(90deg);
+}
+
+/* ============================
+   Éléments de Niveau
+============================= */
+.level-fill,
+.level-empty {
+  width: 22px;
+  height: 8px;
+  border-radius: 4px;
+  margin-left: 2px;
+}
+
+.level-fill {
+  background: var(--accent);
+}
+
+.level-empty {
+  background: #ced4da;
+}
+
+/* ============================
+   Animations
+============================= */
 @keyframes fadeInUp {
   to {
     opacity: 1;
@@ -511,7 +594,18 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Animation échelonnée */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Délais d'animation échelonnés */
 .skill-card:nth-child(1) { animation-delay: 0.1s; }
 .skill-card:nth-child(2) { animation-delay: 0.2s; }
 .skill-card:nth-child(3) { animation-delay: 0.3s; }
@@ -527,68 +621,13 @@ h1, h2, h3, h4, h5, h6 {
 .skill-card:nth-child(13) { animation-delay: 1.3s; }
 .skill-card:nth-child(14) { animation-delay: 1.4s; }
 
-/* ============================
-   Styles pour toutes les sections
-============================= */
-section {
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* Conteneurs génériques */
-.container, .container-fluid {
-  transition: background-color 0.3s, color 0.3s;
-}
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
 
 /* ============================
-   Anciens styles conservés
+   Responsive Design
 ============================= */
-.dark-mode-bg {
-  background: var(--bg-dark-mode);
-}
-
-.dark-mode-card {
-  background: var(--bg-dark-mode);
-}
-
-.dark-mode-text {
-  color: var(--text-dark-mode);
-}
-
-/* barre d'onglets */
-.level-fill,
-.level-empty {
-  width: 22px;
-  height: 8px;
-  border-radius: 4px;
-  margin-left: 2px;
-  transition: background-color 0.3s;
-}
-
-.level-fill {
-  background: var(--accent-color);
-}
-
-.level-empty {
-  background: #ced4da;
-}
-
-.dark-mode .level-empty {
-  background: #6c757d;
-}
-
-/* transition douce pour dark‑mode */
-#skills,
-#skills * {
-  transition: background-color 0.3s, color 0.3s;
-  border-radius: 0.5rem;
-}
-
-/* Tous les éléments de base */
-* {
-  transition: background-color 0.3s, color 0.3s;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
   .skills-grid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -607,4 +646,55 @@ section {
     padding: 1rem;
     margin: 1rem;
   }
+
+  .card {
+    margin-bottom: 1.5rem;
+  }
+
+  .card-title {
+    font-size: 1rem;
+  }
+
+  .card-text {
+    font-size: 0.9rem;
+  }
+
+  #portfolio {
+    margin: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  #portfolio h2 {
+    font-size: 2rem;
+  }
+
+  .project-sidebar {
+    width: 100% !important;
+    padding: 1.5rem;
+  }
+
+  .col-md-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+/* Ajoute cela dans ton fichier CSS ou dans une balise style dans le head */
+.card {
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+#about-me, #soft-skills {
+    padding: 50px 0;
+}
+
+#about-me img {
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
 }
