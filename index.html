@@ -11,6 +11,8 @@
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body style="padding-top: 80px; padding-bottom: 80px; position: relative;">
@@ -154,142 +156,139 @@
       <a id="sidebar-git" target="_blank">Lien GIT</a>
     </div>
 
+    <!-- Partie Mes Compétences  -->
+    <div class="container">
+      <section class="skills-section">
+        <h2 class="section-title">Mes Compétences</h2>
 
-    <h2 class="mb-4 text-center">Skills</h2>
-    <section id="skills" class="py-5 bg-light dark-mode-bg transition-colors duration-300">
-      <div class="container">
-        <div class="d-flex justify-content-center mb-4 overflow-auto pb">
-          <div class="btn-group shadow-sm dark-mode-card p-1 rounded">
-            <button class="btn btn-sm filter-btn" data-filter="all">All</button>
-            <button class="btn btn-sm filter-btn" data-filter="backend">Backend</button>
-            <button class="btn btn-sm filter-btn" data-filter="language">Language</button>
-            <button class="btn btn-sm filter-btn" data-filter="DevOps">DevOps</button>
-            <button class="btn btn-sm filter-btn" data-filter="Tools">Outils et Autres </button>
-          </div>
+        <div class="filter-container">
+          <button class="btn filter-btn active" data-filter="all">Tout</button>
+          <button class="btn filter-btn" data-filter="backend">Backend</button>
+          <button class="btn filter-btn" data-filter="language">Langages</button>
+          <button class="btn filter-btn" data-filter="DevOps">DevOps</button>
+          <button class="btn filter-btn" data-filter="Tools">Outils</button>
         </div>
-        <div class="row g-4" id="tech-grid">
+
+        <div class="skills-grid" id="skills-grid">
           <!-- Backend -->
-          <div class="col-md-6 mb-4 tech-card" data-cat="backend">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">SQLWORKFORBENCH</h3>
-                <span class="badge bg-secondary text-capitalize">Backend</span>
-              </div>
+          <div class="skill-card" data-cat="backend">
+            <div class="skill-icon">
+              <i class="fas fa-database"></i>
             </div>
-          </div>
-          <!-- Language de Programmation -->
-          <div class="col-md-6 mb-4 tech-card" data-cat="language">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Dart</h3>
-                <span class="badge bg-secondary text-capitalize">Language</span>
-              </div>
-            </div>
+            <div class="skill-name">MySQL Workbench</div>
+            <span class="skill-category">Backend</span>
           </div>
 
-          <div class="col-md-6 mb-4 tech-card" data-cat="language">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Python</h3>
-                <span class="badge bg-secondary text-capitalize">Language</span>
-              </div>
+          <!-- Langages de Programmation -->
+          <div class="skill-card" data-cat="language">
+            <div class="skill-icon dart">
+              <i class="fab fa-dart-lang"></i>
             </div>
+            <div class="skill-name">Dart</div>
+            <span class="skill-category">Langage</span>
           </div>
-          <div class="col-md-6 mb-4 tech-card" data-cat="language">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">C</h3>
-                <span class="badge bg-secondary text-capitalize">Language</span>
-              </div>
+
+          <div class="skill-card" data-cat="language">
+            <div class="skill-icon python">
+              <i class="fab fa-python"></i>
             </div>
+            <div class="skill-name">Python</div>
+            <span class="skill-category">Langage</span>
           </div>
-          <div class="col-md-6 mb-4 tech-card" data-cat="language">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Java</h3>
-                <span class="badge bg-secondary text-capitalize">Language</span>
-              </div>
+
+          <div class="skill-card" data-cat="language">
+            <div class="skill-icon c">
+              <i class="fas fa-code"></i>
             </div>
+            <div class="skill-name">C</div>
+            <span class="skill-category">Langage</span>
           </div>
+
+          <div class="skill-card" data-cat="language">
+            <div class="skill-icon java">
+              <i class="fab fa-java"></i>
+            </div>
+            <div class="skill-name">Java</div>
+            <span class="skill-category">Langage</span>
+          </div>
+
           <!-- DevOps -->
-          <div class="col-md-6 mb-4 tech-card" data-cat="DevOps">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Docker</h3>
-                <span class="badge bg-secondary text-capitalize">DevOps</span>
-              </div>
+          <div class="skill-card" data-cat="DevOps">
+            <div class="skill-icon docker">
+              <i class="fab fa-docker"></i>
             </div>
+            <div class="skill-name">Docker</div>
+            <span class="skill-category">DevOps</span>
           </div>
-          <div class="col-md-6 mb-4 tech-card" data-cat="DevOps">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Terminal</h3>
-                <span class="badge bg-secondary text-capitalize">DevOps</span>
-              </div>
+
+          <div class="skill-card" data-cat="DevOps">
+            <div class="skill-icon terminal">
+              <i class="fas fa-terminal"></i>
             </div>
+            <div class="skill-name">Terminal</div>
+            <span class="skill-category">DevOps</span>
           </div>
-          <div class="col-md-6 mb-4 tech-card" data-cat="DevOps">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Git</h3>
-                <span class="badge bg-secondary text-capitalize">DevOps</span>
-              </div>
+
+          <div class="skill-card" data-cat="DevOps">
+            <div class="skill-icon git">
+              <i class="fab fa-git-alt"></i>
             </div>
+            <div class="skill-name">Git</div>
+            <span class="skill-category">DevOps</span>
           </div>
-          <!-- Ligne des outils et autres  -->
-          <div class="col-md-6 mb-4 tech-card" data-cat="Tools">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Trello</h3>
-                <span class="badge bg-secondary text-capitalize">Outils</span>
-              </div>
+
+          <!-- Outils -->
+          <div class="skill-card" data-cat="Tools">
+            <div class="skill-icon trello">
+              <i class="fab fa-trello"></i>
             </div>
+            <div class="skill-name">Trello</div>
+            <span class="skill-category">Outils</span>
           </div>
-          <div class="col-md-6 mb-4 tech-card" data-cat="Tools">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Figma</h3>
-                <span class="badge bg-secondary text-capitalize">Outils</span>
-              </div>
+
+          <div class="skill-card" data-cat="Tools">
+            <div class="skill-icon figma">
+              <i class="fab fa-figma"></i>
             </div>
+            <div class="skill-name">Figma</div>
+            <span class="skill-category">Outils</span>
           </div>
-          <div class="col-md-6 mb-4 tech-card" data-cat="Tools">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Android Studio</h3>
-                <span class="badge bg-secondary text-capitalize">Outils</span>
-              </div>
+
+          <div class="skill-card" data-cat="Tools">
+            <div class="skill-icon android">
+              <i class="fab fa-android"></i>
             </div>
+            <div class="skill-name">Android Studio</div>
+            <span class="skill-category">Outils</span>
           </div>
-          <div class="col-md-6 mb-4 tech-card" data-cat="Tools">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Visual Studio Code</h3>
-                <span class="badge bg-secondary text-capitalize">Outils</span>
-              </div>
+
+          <div class="skill-card" data-cat="Tools">
+            <div class="skill-icon vscode">
+              <i class="fas fa-code"></i>
             </div>
+            <div class="skill-name">Visual Studio Code</div>
+            <span class="skill-category">Outils</span>
           </div>
-          <div class="col-md-6 mb-4 tech-card" data-cat="Tools">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">Premier PRO</h3>
-                <span class="badge bg-secondary text-capitalize">Outils</span>
-              </div>
+
+          <div class="skill-card" data-cat="Tools">
+            <div class="skill-icon premiere">
+              <i class="fas fa-video"></i>
             </div>
+            <div class="skill-name">Premiere Pro</div>
+            <span class="skill-category">Outils</span>
           </div>
-          <div class="col-md-6 mb-4 tech-card" data-cat="Tools">
-            <div class="p-4 rounded shadow-sm bg-white dark-mode-card h-100">
-              <div class="d-flex justify-content-between align-items-center mb-3">
-                <h3 class="h6 fw-semibold mb-0 dark-mode-text">SceneBuilder</h3>
-                <span class="badge bg-secondary text-capitalize">Outils</span>
-              </div>
+
+          <div class="skill-card" data-cat="Tools">
+            <div class="skill-icon scenebuilder">
+              <i class="fas fa-cubes"></i>
             </div>
+            <div class="skill-name">SceneBuilder</div>
+            <span class="skill-category">Outils</span>
           </div>
         </div>
-      </div>
-    </section>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+      </section>
+      <script src="script.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

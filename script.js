@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (savedTheme === 'dark') {
     enableDarkMode();
   }
+
   // Gestion de l'affichage des détails du projet
   const projectCards = document.querySelectorAll('.project-card');
   const sidebar = document.getElementById('project-sidebar');
@@ -61,19 +62,76 @@ document.addEventListener('DOMContentLoaded', function () {
     sidebar.classList.remove('visible');
   });
 
-  /* ----- Filtrage des technologies ----- */
-  const techButtons = document.querySelectorAll('.filter-btn');
-  const techCards = document.querySelectorAll('.tech-card');
+  // Gestion du filtrage des compétences
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const skillCards = document.querySelectorAll('.skill-card');
 
-  techButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // état visuel onglet actif
-      techButtons.forEach(b => b.classList.toggle('active', b === btn));
-      const cat = btn.dataset.filter;
-      techCards.forEach(card => {
-        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+  function filterSkills(category) {
+    skillCards.forEach((card, index) => {
+      const cardCategory = card.getAttribute('data-cat');
+
+      if (category === 'all' || cardCategory === category) {
+        card.style.display = 'block';
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, index * 50);
+      } else {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        setTimeout(() => {
+          card.style.display = 'none';
+        }, 300);
+      }
+    });
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      const filterValue = this.getAttribute('data-filter');
+      filterSkills(filterValue);
+    });
+  });
+
+  // Animation au défilement
+  function animateOnScroll() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.animationPlayState = 'running';
+        }
       });
+    }, {
+      threshold: 0.1
+    });
+
+    skillCards.forEach(card => {
+      observer.observe(card);
+    });
+  }
+
+  animateOnScroll();
+
+  // Effet de parallaxe léger sur les cartes
+  document.addEventListener('mousemove', function (e) {
+    const cards = document.querySelectorAll('.skill-card');
+    const x = e.clientX / window.innerWidth;
+    const y = e.clientY / window.innerHeight;
+
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const cardX = (rect.left + rect.width / 2) / window.innerWidth;
+      const cardY = (rect.top + rect.height / 2) / window.innerHeight;
+
+      const deltaX = (x - cardX) * 5;
+      const deltaY = (y - cardY) * 5;
+
+      if (card.matches(':hover')) {
+        card.style.transform = `translateY(-10px) scale(1.02) rotateX(${deltaY}deg) rotateY(${deltaX}deg)`;
+      }
     });
   });
 });
-
