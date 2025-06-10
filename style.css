@@ -698,3 +698,53 @@ header {
     max-width: 100%;
     height: auto;
 }
+.softskill-card-link {
+  text-decoration: none;
+}
+
+.softskill-card {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  min-height: 220px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.softskill-card i {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ffd700;
+}
+
+.softskill-card:hover {
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  transform: translateY(-6px) scale(1.03);
+  background: linear-gradient(135deg, #764ba2, #667eea);
+}
+
+@media (max-width: 767px) {
+  .softskill-card {
+    padding: 1.2rem;
+    min-height: 160px;
+  }
+}
+.profil-photo {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: var(--card-shadow);
+  border: 5px solid var(--accent-color);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
