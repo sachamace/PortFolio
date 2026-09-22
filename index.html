@@ -19,14 +19,10 @@
 </head>
 
 <body>
-  <!-- Barre de progression de scroll -->
-  <div class="scroll-progress" id="scroll-progress"></div>
-
   <!-- Formes décoratives globales -->
   <div class="blob-layer" aria-hidden="true">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-    <div class="blob blob-3"></div>
   </div>
 
   <header class="site-header" id="site-header">
@@ -61,74 +57,60 @@
   <main>
     <!-- HERO -->
     <section id="hero" class="hero">
-      <p class="hero-eyebrow reveal-up">Développeur Web &amp; Application</p>
+      <p class="hero-eyebrow">Développeur Web &amp; Application</p>
       <h1 class="hero-title" id="hero-title" aria-label="Sacha Macé">
         <span class="hero-line" data-line>Sacha</span>
         <span class="hero-line" data-line>Macé</span>
       </h1>
-      <p class="hero-subtitle reveal-up">
-        Étudiant en BUT Informatique à l'IUT de Lannion. Je construis des applications et
-        des sites web, du back-end à l'interface — et je cherche une alternance pour la suite.
+      <p class="hero-subtitle">
+        Étudiant en BUT Informatique à l'IUT de Lannion, actuellement en alternance.
+        Je construis des applications et des sites web, du back-end à l'interface.
       </p>
 
-      <div class="hero-cta reveal-up">
-        <a href="#projects" class="btn btn-primary magnetic">Voir mes projets</a>
-        <a href="#contact" class="btn btn-outline magnetic">Me contacter</a>
-      </div>
-
-      <div class="hero-stats reveal-up">
-        <div class="stat">
-          <span class="stat-number" data-count="6">0</span>
-          <span class="stat-label">Projets réalisés</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number" data-count="1">0</span>
-          <span class="stat-label">Prix régional Trophées NSI</span>
-        </div>
-        <div class="stat">
-          <span class="stat-label stat-label-static">BUT Informatique<br>IUT de Lannion</span>
-        </div>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+        <a href="#contact" class="text-link">Me contacter <i class="fa-solid fa-arrow-right"></i></a>
       </div>
 
       <a href="#about" class="scroll-cue" aria-label="Défiler vers le bas">
-        <span></span>
+        <i class="fa-solid fa-chevron-down"></i>
       </a>
     </section>
 
     <!-- À PROPOS -->
     <section id="about" class="section about">
       <div class="section-head">
-        <p class="section-kicker reveal">À propos</p>
-        <h2 class="section-title reveal">Qui je suis</h2>
+        <p class="section-kicker">À propos</p>
+        <h2 class="section-title">Qui je suis</h2>
       </div>
 
       <div class="about-grid">
-        <div class="about-photo reveal">
+        <div class="about-photo">
           <div class="photo-frame">
             <img src="images/data.jpeg" alt="Photo de Sacha Macé" loading="lazy">
           </div>
         </div>
 
         <div class="about-content">
-          <p class="about-text reveal">
+          <p class="about-text">
             Salut, je suis Sacha ! Étudiant en BUT Informatique à l'IUT de Lannion, curieux et
             impliqué, j'aime autant écrire du code que comprendre comment un projet se construit
             en équipe, de l'idée jusqu'à la mise en ligne.
           </p>
-          <p class="about-text reveal">
+          <p class="about-text">
             J'ai touché à peu près à tout : sites web, applications, bases de données,
             algorithmes, systèmes. Ce qui me plaît le plus, c'est de transformer un besoin
             concret en quelque chose d'utilisable — et de continuer à apprendre en le faisant.
           </p>
 
-          <ul class="about-facts reveal">
+          <ul class="about-facts">
             <li><i class="fa-solid fa-location-dot"></i> Lannion (22300)</li>
-            <li><i class="fa-solid fa-briefcase"></i> À la recherche d'une alternance</li>
+            <li><i class="fa-solid fa-briefcase"></i> Actuellement en alternance</li>
             <li><i class="fa-solid fa-id-card"></i> Permis B</li>
             <li><i class="fa-solid fa-language"></i> FR · EN (B1) · ES (A2)</li>
           </ul>
 
-          <div class="chips reveal">
+          <div class="chips">
             <span class="chip"><i class="fa-solid fa-basketball"></i> Basket</span>
             <span class="chip"><i class="fa-solid fa-masks-theater"></i> Théâtre</span>
             <span class="chip"><i class="fa-solid fa-music"></i> Musique</span>
@@ -141,11 +123,11 @@
     <!-- COMPÉTENCES -->
     <section id="skills" class="section skills">
       <div class="section-head">
-        <p class="section-kicker reveal">Boîte à outils</p>
-        <h2 class="section-title reveal">Mes compétences</h2>
+        <p class="section-kicker">Boîte à outils</p>
+        <h2 class="section-title">Mes compétences</h2>
       </div>
 
-      <div class="filter-bar reveal">
+      <div class="filter-bar">
         <button class="filter-btn active" data-filter="all">Tout</button>
         <button class="filter-btn" data-filter="langages">Langages</button>
         <button class="filter-btn" data-filter="data">Frameworks &amp; Data</button>
@@ -153,85 +135,85 @@
       </div>
 
       <div class="skills-grid" id="skills-grid">
-        <div class="skill-card reveal" data-cat="langages">
+        <div class="skill-card" data-cat="langages">
           <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
           <div class="skill-name">HTML5</div>
         </div>
-        <div class="skill-card reveal" data-cat="langages">
+        <div class="skill-card" data-cat="langages">
           <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
           <div class="skill-name">CSS3</div>
         </div>
-        <div class="skill-card reveal" data-cat="langages">
+        <div class="skill-card" data-cat="langages">
           <div class="skill-icon"><i class="fa-brands fa-square-js"></i></div>
           <div class="skill-name">JavaScript</div>
         </div>
-        <div class="skill-card reveal" data-cat="langages">
+        <div class="skill-card" data-cat="langages">
           <div class="skill-icon"><i class="fa-brands fa-php"></i></div>
           <div class="skill-name">PHP</div>
         </div>
-        <div class="skill-card reveal" data-cat="langages">
+        <div class="skill-card" data-cat="langages">
           <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
           <div class="skill-name">Python</div>
         </div>
-        <div class="skill-card reveal" data-cat="langages">
+        <div class="skill-card" data-cat="langages">
           <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
           <div class="skill-name">C</div>
         </div>
-        <div class="skill-card reveal" data-cat="langages">
+        <div class="skill-card" data-cat="langages">
           <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
           <div class="skill-name">Java</div>
         </div>
-        <div class="skill-card reveal" data-cat="langages">
+        <div class="skill-card" data-cat="langages">
           <div class="skill-icon"><i class="fa-brands fa-dart-lang"></i></div>
           <div class="skill-name">Dart</div>
         </div>
 
-        <div class="skill-card reveal" data-cat="data">
+        <div class="skill-card" data-cat="data">
           <div class="skill-icon"><i class="fa-brands fa-react"></i></div>
           <div class="skill-name">React</div>
         </div>
-        <div class="skill-card reveal" data-cat="data">
+        <div class="skill-card" data-cat="data">
           <div class="skill-icon"><i class="fa-brands fa-node-js"></i></div>
           <div class="skill-name">Node.js</div>
         </div>
-        <div class="skill-card reveal" data-cat="data">
+        <div class="skill-card" data-cat="data">
           <div class="skill-icon"><i class="fa-solid fa-leaf"></i></div>
           <div class="skill-name">MongoDB</div>
         </div>
-        <div class="skill-card reveal" data-cat="data">
+        <div class="skill-card" data-cat="data">
           <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
           <div class="skill-name">SQL / SQLite</div>
         </div>
-        <div class="skill-card reveal" data-cat="data">
+        <div class="skill-card" data-cat="data">
           <div class="skill-icon"><i class="fa-solid fa-table-cells"></i></div>
           <div class="skill-name">Tutorial D</div>
         </div>
 
-        <div class="skill-card reveal" data-cat="outils">
+        <div class="skill-card" data-cat="outils">
           <div class="skill-icon"><i class="fa-brands fa-git-alt"></i></div>
           <div class="skill-name">Git</div>
         </div>
-        <div class="skill-card reveal" data-cat="outils">
+        <div class="skill-card" data-cat="outils">
           <div class="skill-icon"><i class="fa-brands fa-gitlab"></i></div>
           <div class="skill-name">GitLab</div>
         </div>
-        <div class="skill-card reveal" data-cat="outils">
+        <div class="skill-card" data-cat="outils">
           <div class="skill-icon"><i class="fa-brands fa-docker"></i></div>
           <div class="skill-name">Docker</div>
         </div>
-        <div class="skill-card reveal" data-cat="outils">
+        <div class="skill-card" data-cat="outils">
           <div class="skill-icon"><i class="fa-brands fa-linux"></i></div>
           <div class="skill-name">Linux / Bash</div>
         </div>
-        <div class="skill-card reveal" data-cat="outils">
+        <div class="skill-card" data-cat="outils">
           <div class="skill-icon"><i class="fa-brands fa-trello"></i></div>
           <div class="skill-name">Trello</div>
         </div>
-        <div class="skill-card reveal" data-cat="outils">
+        <div class="skill-card" data-cat="outils">
           <div class="skill-icon"><i class="fa-brands fa-figma"></i></div>
           <div class="skill-name">Figma</div>
         </div>
-        <div class="skill-card reveal" data-cat="outils">
+        <div class="skill-card" data-cat="outils">
           <div class="skill-icon"><i class="fa-brands fa-android"></i></div>
           <div class="skill-name">Android Studio</div>
         </div>
@@ -241,137 +223,97 @@
     <!-- PROJETS -->
     <section id="projects" class="section projects">
       <div class="section-head">
-        <p class="section-kicker reveal">Réalisations</p>
-        <h2 class="section-title reveal">Mes projets</h2>
-        <p class="section-desc reveal">Une sélection de projets perso et d'équipe, du plus récent au plus ancien.</p>
+        <p class="section-kicker">Réalisations</p>
+        <h2 class="section-title">Mes projets</h2>
+        <p class="section-desc">Une sélection de projets perso et d'équipe, du plus récent au plus ancien.</p>
       </div>
 
       <div class="projects-grid" id="projects-grid">
 
-        <article class="project-card reveal" style="--card-grad: var(--grad-1)"
+        <article class="project-card"
           data-title="App Manager Tournaments"
-          data-badge="Projet perso"
+          data-meta="Projet perso · Seul"
           data-description="Un site web pour créer, gérer et suivre des tournois de A à Z : inscriptions, brackets, résultats. Développé en solo pour aller au bout d'une idée full-stack, de l'API à l'interface."
           data-git="https://github.com/sachamace/app_manager_tournaments"
           data-link=""
           data-tags="React,Node.js,MongoDB,API REST">
-          <div class="project-visual">
-            <i class="fa-solid fa-trophy"></i>
-          </div>
-          <div class="project-body">
-            <span class="project-tag">Projet perso</span>
-            <h3 class="project-title">App Manager Tournaments</h3>
-            <p class="project-text">Gestionnaire de tournois full-stack : API REST Node.js, React côté client, MongoDB pour les données.</p>
-            <div class="project-stack">
-              <span>React</span><span>Node.js</span><span>MongoDB</span>
-            </div>
-            <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
+          <span class="project-meta">Projet perso · Seul</span>
+          <h3 class="project-title">App Manager Tournaments</h3>
+          <p class="project-text">Gestionnaire de tournois full-stack : API REST Node.js, React côté client, MongoDB pour les données.</p>
+          <p class="project-stack">React · Node.js · MongoDB</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
         </article>
 
-        <article class="project-card reveal" style="--card-grad: var(--grad-2)"
+        <article class="project-card"
           data-title="Fit Finder"
-          data-badge="🏆 Prix régional Trophées NSI 2024"
+          data-meta="Équipe de 5"
+          data-award="Prix régional Trophées NSI 2024"
           data-description="Un moteur de recherche dédié à l'actualité sportive, pensé pour un fan de sport qui veut aller droit au but. Projet réalisé en équipe de 5, lauréat du prix régional des Trophées NSI 2024."
           data-git="https://gitlab.com/trophees-nsi/projet/-/tree/5df947a69098ab2fb817f16b779429e68b9e17fe/"
           data-link="https://depot.trophees-nsi.fr/uploads/Etoj9jUG2zXpHwP50z5aTEiWiwQpJn9Z3EO7dgEa.pdf"
           data-tags="Python,HTML,CSS,JavaScript,SQLite">
-          <div class="project-visual">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </div>
-          <div class="project-body">
-            <span class="project-tag project-tag-award">🏆 Prix régional NSI 2024</span>
-            <h3 class="project-title">Fit Finder</h3>
-            <p class="project-text">Moteur de recherche spécialisé dans le sport, réalisé en équipe de 5 et primé au niveau régional.</p>
-            <div class="project-stack">
-              <span>Python</span><span>SQLite</span><span>JS</span>
-            </div>
-            <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
+          <span class="project-meta">Équipe de 5</span>
+          <span class="project-award">★ Prix régional Trophées NSI 2024</span>
+          <h3 class="project-title">Fit Finder</h3>
+          <p class="project-text">Moteur de recherche spécialisé dans le sport, réalisé en équipe de 5 et primé au niveau régional.</p>
+          <p class="project-stack">Python · SQLite · JS</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
         </article>
 
-        <article class="project-card reveal" style="--card-grad: var(--grad-3)"
+        <article class="project-card"
           data-title="Site Web Escrime — JO"
-          data-badge="Projet d'équipe"
+          data-meta="Projet d'équipe"
           data-description="Un site web complet construit en équipe autour des Jeux Olympiques, avec une partie dédiée à l'escrime que j'ai portée : contenu, mise en page et intégration."
           data-git="https://github.com/Gabriel-Monnier/Site_Jo"
           data-link=""
-          data-tags="HTML,CSS,JavaScript,Travail d'équipe">
-          <div class="project-visual">
-            <i class="fa-solid fa-medal"></i>
-          </div>
-          <div class="project-body">
-            <span class="project-tag">Projet d'équipe</span>
-            <h3 class="project-title">Site Web Escrime — JO</h3>
-            <p class="project-text">Site dédié aux Jeux Olympiques, avec la partie escrime développée et intégrée par mes soins.</p>
-            <div class="project-stack">
-              <span>HTML</span><span>CSS</span><span>JS</span>
-            </div>
-            <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
+          data-tags="HTML,CSS,JavaScript">
+          <span class="project-meta">Projet d'équipe</span>
+          <h3 class="project-title">Site Web Escrime — JO</h3>
+          <p class="project-text">Site dédié aux Jeux Olympiques, avec la partie escrime développée et intégrée par mes soins.</p>
+          <p class="project-stack">HTML · CSS · JS</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
         </article>
 
-        <article class="project-card reveal" style="--card-grad: var(--grad-4)"
+        <article class="project-card"
           data-title="Alizon"
-          data-badge="SAE — Année 2"
-          data-description="Un projet SAE de deuxième année développé en PHP, avec une bonne partie de logique métier côté serveur et une interface stylée en SCSS."
+          data-meta="Projet d'équipe · BUT2"
+          data-description="Un projet de deuxième année développé en PHP, avec une bonne partie de logique métier côté serveur et une interface stylée en SCSS."
           data-git="https://github.com/sachamace/Alizon"
           data-link=""
           data-tags="PHP,SCSS,JavaScript">
-          <div class="project-visual">
-            <i class="fa-solid fa-layer-group"></i>
-          </div>
-          <div class="project-body">
-            <span class="project-tag">SAE — Année 2</span>
-            <h3 class="project-title">Alizon</h3>
-            <p class="project-text">Application web en PHP développée dans le cadre d'une SAE de BUT2, interface en SCSS.</p>
-            <div class="project-stack">
-              <span>PHP</span><span>SCSS</span><span>JS</span>
-            </div>
-            <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
+          <span class="project-meta">Projet d'équipe · BUT2</span>
+          <h3 class="project-title">Alizon</h3>
+          <p class="project-text">Application web en PHP développée en deuxième année de BUT, interface en SCSS.</p>
+          <p class="project-stack">PHP · SCSS · JS</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
         </article>
 
-        <article class="project-card reveal" style="--card-grad: var(--grad-5)"
+        <article class="project-card"
           data-title="Site en réseau — Apache"
-          data-badge="SAE"
+          data-meta="Projet d'équipe"
           data-description="Mise en place d'un site web servi via un serveur Apache configuré en réseau, avec les scripts de déploiement associés."
           data-git="https://github.com/sachamace/SAE203"
           data-link=""
           data-tags="HTML,JavaScript,Apache,Shell">
-          <div class="project-visual">
-            <i class="fa-solid fa-server"></i>
-          </div>
-          <div class="project-body">
-            <span class="project-tag">SAE</span>
-            <h3 class="project-title">Site en réseau — Apache</h3>
-            <p class="project-text">Site web déployé sur un serveur Apache configuré en réseau, scripts de mise en place inclus.</p>
-            <div class="project-stack">
-              <span>HTML</span><span>Apache</span><span>Shell</span>
-            </div>
-            <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
+          <span class="project-meta">Projet d'équipe</span>
+          <h3 class="project-title">Site en réseau — Apache</h3>
+          <p class="project-text">Site web déployé sur un serveur Apache configuré en réseau, scripts de mise en place inclus.</p>
+          <p class="project-stack">HTML · Apache · Shell</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
         </article>
 
-        <article class="project-card reveal" style="--card-grad: var(--grad-6)"
+        <article class="project-card"
           data-title="Snake Autonome"
-          data-badge="Algorithmique"
+          data-meta="Projet d'équipe · Algorithmique"
           data-description="Après une première version jouable du Snake en C, cette version se pilote toute seule : un algorithme prend les décisions de déplacement du serpent en temps réel."
           data-git="https://github.com/sachamace/SAE102_SNAKEAUTONOME"
           data-link=""
           data-tags="C,Algorithmique">
-          <div class="project-visual">
-            <i class="fa-solid fa-robot"></i>
-          </div>
-          <div class="project-body">
-            <span class="project-tag">Algorithmique</span>
-            <h3 class="project-title">Snake Autonome</h3>
-            <p class="project-text">Version du jeu Snake pilotée par un algorithme de décision, écrite en C.</p>
-            <div class="project-stack">
-              <span>C</span>
-            </div>
-            <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-          </div>
+          <span class="project-meta">Projet d'équipe · Algorithmique</span>
+          <h3 class="project-title">Snake Autonome</h3>
+          <p class="project-text">Version du jeu Snake pilotée par un algorithme de décision, écrite en C.</p>
+          <p class="project-stack">C</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
         </article>
 
       </div>
@@ -382,8 +324,8 @@
       <button id="close-sidebar" class="close-btn" aria-label="Fermer">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <div class="sidebar-icon" id="sidebar-icon"><i class="fa-solid fa-star"></i></div>
-      <span class="sidebar-badge" id="sidebar-badge"></span>
+      <span class="sidebar-meta" id="sidebar-meta"></span>
+      <span class="sidebar-award" id="sidebar-award"></span>
       <h3 id="sidebar-title"></h3>
       <p id="sidebar-description"></p>
       <div class="sidebar-tags" id="sidebar-tags"></div>
@@ -394,37 +336,37 @@
     <!-- CONTACT -->
     <section id="contact" class="section contact">
       <div class="section-head">
-        <p class="section-kicker reveal">Contact</p>
-        <h2 class="section-title reveal">Parlons de votre prochain projet</h2>
-        <p class="section-desc reveal">Étudiant à la recherche d'une alternance en développement web ou application — n'hésitez pas à me contacter.</p>
+        <p class="section-kicker">Contact</p>
+        <h2 class="section-title">Parlons de votre prochain projet</h2>
+        <p class="section-desc">Étudiant en alternance, toujours partant pour échanger sur un projet ou une opportunité.</p>
       </div>
 
       <div class="contact-grid">
-        <a href="tel:0645399315" class="contact-card reveal">
+        <a href="tel:0645399315" class="contact-card">
           <i class="fa-solid fa-phone"></i>
           <h5>Téléphone</h5>
           <p>06 45 39 93 15</p>
         </a>
 
-        <a href="mailto:sacha.mace@gmail.com" class="contact-card reveal">
+        <a href="mailto:sacha.mace@gmail.com" class="contact-card">
           <i class="fa-solid fa-envelope"></i>
           <h5>Email</h5>
           <p>sacha.mace@gmail.com</p>
         </a>
 
-        <a href="sources/CV_2025-06-04_Sacha_Macé.pdf" target="_blank" class="contact-card reveal">
+        <a href="sources/CV_2025-06-04_Sacha_Macé.pdf" target="_blank" class="contact-card">
           <i class="fa-solid fa-file-arrow-down"></i>
           <h5>CV</h5>
           <p>Télécharger le PDF</p>
         </a>
 
-        <a href="https://www.linkedin.com/in/sachamace" target="_blank" rel="noopener" class="contact-card reveal">
+        <a href="https://www.linkedin.com/in/sachamace" target="_blank" rel="noopener" class="contact-card">
           <i class="fa-brands fa-linkedin-in"></i>
           <h5>LinkedIn</h5>
           <p>/in/sachamace</p>
         </a>
 
-        <a href="https://github.com/sachamace" target="_blank" rel="noopener" class="contact-card reveal">
+        <a href="https://github.com/sachamace" target="_blank" rel="noopener" class="contact-card">
           <i class="fa-brands fa-github"></i>
           <h5>GitHub</h5>
           <p>/sachamace</p>
