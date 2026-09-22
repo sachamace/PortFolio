@@ -1,226 +1,264 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Cache des éléments DOM
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---------------------------------------------------------------------
+     Smooth scroll (Lenis) synchronisé avec GSAP
+  --------------------------------------------------------------------- */
+  let lenis;
+  if (typeof Lenis !== 'undefined' && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  /* ---------------------------------------------------------------------
+     Thème clair / sombre
+  --------------------------------------------------------------------- */
+  const root = document.documentElement;
   const themeToggle = document.getElementById('theme-toggle');
-  const body = document.body;
-  const projectCards = document.querySelectorAll('.project-card');
-  const competenceLinks = document.querySelectorAll('.softskill-card-link');
+  const themeIcon = themeToggle.querySelector('i');
 
-  competenceLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const selectedCompetence = this.getAttribute('data-competence');
+  function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    localStorage.setItem('theme', theme);
+  }
 
-      projectCards.forEach(card => {
-        const projectCompetences = card.dataset.competences || "";
-        const compArray = projectCompetences.split(',').map(c => c.trim());
+  const savedTheme = localStorage.getItem('theme') ||
+    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(savedTheme);
 
-        if (selectedCompetence === 'all' || compArray.includes(selectedCompetence)) {
-          card.parentElement.style.display = 'block';
-        } else {
-          card.parentElement.style.display = 'none';
-        }
-      });
+  themeToggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+  });
 
-      // Scroll vers la section projets
-      document.querySelector('h2.mb-4.text-center').scrollIntoView({ behavior: 'smooth' });
+  /* ---------------------------------------------------------------------
+     Nav : état au scroll + menu mobile
+  --------------------------------------------------------------------- */
+  const header = document.getElementById('site-header');
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('navbar-links');
+
+  ScrollTrigger.create({
+    start: 'top -80',
+    end: 99999,
+    onUpdate: (self) => {
+      header.classList.toggle('scrolled', self.scroll() > 80);
+    }
+  });
+
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+
+  navLinks.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  /* ---------------------------------------------------------------------
+     Barre de progression de scroll
+  --------------------------------------------------------------------- */
+  const progressBar = document.getElementById('scroll-progress');
+  ScrollTrigger.create({
+    start: 0,
+    end: 'max',
+    onUpdate: (self) => {
+      progressBar.style.width = `${self.progress * 100}%`;
+    }
+  });
+
+  /* ---------------------------------------------------------------------
+     Hero : révélation du titre + éléments
+  --------------------------------------------------------------------- */
+  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+  heroTl
+    .to('.hero-eyebrow', { opacity: 1, y: 0, duration: 0.6 })
+    .from('.hero-line', {
+      yPercent: 120,
+      opacity: 0,
+      duration: 1,
+      stagger: 0.12
+    }, '-=0.3')
+    .to('.hero-subtitle', { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
+    .to('.hero-cta', { opacity: 1, y: 0, duration: 0.7 }, '-=0.5')
+    .to('.hero-stats', { opacity: 1, y: 0, duration: 0.7 }, '-=0.4');
+
+  /* Compteurs de stats */
+  document.querySelectorAll('.stat-number').forEach((el) => {
+    const target = parseInt(el.dataset.count, 10);
+    gsap.fromTo(el, { innerText: 0 }, {
+      innerText: target,
+      duration: 1.4,
+      delay: 1.2,
+      snap: { innerText: 1 },
+      ease: 'power2.out'
     });
   });
-  const sidebar = document.getElementById('project-sidebar');
-  const closeBtn = document.getElementById('close-sidebar');
-  const sidebarTitle = document.getElementById('sidebar-title');
-  const sidebarDesc = document.getElementById('sidebar-description');
-  const sidebarImage = document.getElementById('sidebar-image');
-  const sidebarLinks = document.getElementById('sidebar-links');
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const skillCards = document.querySelectorAll('.skill-card');
-  const competenceLabels = {
-    dev: "Réaliser un développement d’application",
-    data: "Gérer des données de l’information",
-    ux: "Optimiser des applications informatiques",
-    admin: "Administrer des systèmes informatiques communicants complexes",
-    equipe: "Travailler dans une équipe informatique",
-    projet: "Conduire un projet"
-  };
 
-  let isDarkMode = false;
+  /* ---------------------------------------------------------------------
+     Blobs : flottement continu
+  --------------------------------------------------------------------- */
+  gsap.to('.blob-1', { x: 60, y: 40, duration: 9, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+  gsap.to('.blob-2', { x: -50, y: 60, duration: 11, repeat: -1, yoyo: true, ease: 'sine.inOut' });
+  gsap.to('.blob-3', { x: 40, y: -50, duration: 10, repeat: -1, yoyo: true, ease: 'sine.inOut' });
 
-  // Fonctions pour le thème
-  function toggleTheme(isDark) {
-    body.classList.toggle('dark-mode', isDark);
-    body.classList.toggle('light-mode', !isDark);
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }
-
-  // Gestion du thème
-  themeToggle.addEventListener('click', () => {
-    isDarkMode = !isDarkMode;
-    toggleTheme(isDarkMode);
+  /* ---------------------------------------------------------------------
+     Révélations au scroll (sections, cartes, etc.)
+  --------------------------------------------------------------------- */
+  gsap.utils.toArray('.reveal').forEach((el, i) => {
+    gsap.to(el, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+        toggleActions: 'play none none reverse'
+      },
+      delay: (i % 3) * 0.08
+    });
   });
 
-  // Initialisation du thème
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'dark') {
-    isDarkMode = true;
-    toggleTheme(true);
-  }
+  /* ---------------------------------------------------------------------
+     Cartes projets : léger tilt à la souris
+  --------------------------------------------------------------------- */
+  document.querySelectorAll('.project-card').forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      gsap.to(card, {
+        rotateX: y * -6,
+        rotateY: x * 8,
+        transformPerspective: 900,
+        duration: 0.4,
+        ease: 'power2.out'
+      });
+    });
 
-  // Gestion de la sidebar des projets
-  function openSidebar(title, description, image, link, git, competences) {
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { rotateX: 0, rotateY: 0, duration: 0.6, ease: 'power3.out' });
+    });
+  });
+
+  /* ---------------------------------------------------------------------
+     Boutons magnétiques
+  --------------------------------------------------------------------- */
+  document.querySelectorAll('.magnetic').forEach((btn) => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      gsap.to(btn, { x: x * 0.3, y: y * 0.4, duration: 0.3, ease: 'power2.out' });
+    });
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1, 0.4)' });
+    });
+  });
+
+  /* ---------------------------------------------------------------------
+     Filtres de compétences
+  --------------------------------------------------------------------- */
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const skillCards = document.querySelectorAll('.skill-card');
+
+  filterButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach((b) => b.classList.remove('active'));
+      button.classList.add('active');
+      const filter = button.dataset.filter;
+
+      skillCards.forEach((card) => {
+        const match = filter === 'all' || card.dataset.cat === filter;
+        if (match) {
+          gsap.to(card, { opacity: 1, scale: 1, display: 'block', duration: 0.35, ease: 'power2.out' });
+        } else {
+          gsap.to(card, {
+            opacity: 0, scale: 0.85, duration: 0.25, ease: 'power2.in',
+            onComplete: () => { card.style.display = 'none'; }
+          });
+        }
+      });
+    });
+  });
+
+  /* ---------------------------------------------------------------------
+     Sidebar de détail projet
+  --------------------------------------------------------------------- */
+  const sidebar = document.getElementById('project-sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  const closeBtn = document.getElementById('close-sidebar');
+  const sidebarIcon = document.getElementById('sidebar-icon');
+  const sidebarBadge = document.getElementById('sidebar-badge');
+  const sidebarTitle = document.getElementById('sidebar-title');
+  const sidebarDesc = document.getElementById('sidebar-description');
+  const sidebarTags = document.getElementById('sidebar-tags');
+  const sidebarLinks = document.getElementById('sidebar-links');
+
+  function openSidebar(card) {
+    const { title, badge, description, tags, git, link } = card.dataset;
+    const iconClass = card.querySelector('.project-visual i').className;
+    const gradient = card.style.getPropertyValue('--card-grad');
+
+    sidebarIcon.innerHTML = `<i class="${iconClass}"></i>`;
+    sidebarIcon.style.background = gradient || '';
+    sidebarBadge.textContent = badge || '';
     sidebarTitle.textContent = title;
     sidebarDesc.textContent = description;
-    sidebarImage.src = image;
+
+    sidebarTags.innerHTML = '';
+    (tags || '').split(',').filter(Boolean).forEach((tag) => {
+      const span = document.createElement('span');
+      span.textContent = tag.trim();
+      sidebarTags.appendChild(span);
+    });
+
     sidebarLinks.innerHTML = '';
-
-    if (link && link.trim() && link.trim() !== '#') {
-      const projectLink = document.createElement('a');
-      projectLink.href = link;
-      projectLink.target = '_blank';
-      projectLink.className = 'sidebar-link';
-      projectLink.innerHTML = '<i class="bx bx-link-external"></i> Voir le projet';
-      sidebarLinks.appendChild(projectLink);
+    if (git) {
+      const a = document.createElement('a');
+      a.href = git;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.className = 'sidebar-link';
+      a.innerHTML = '<i class="fa-brands fa-github"></i> Code source';
+      sidebarLinks.appendChild(a);
+    }
+    if (link) {
+      const a = document.createElement('a');
+      a.href = link;
+      a.target = '_blank';
+      a.rel = 'noopener';
+      a.className = 'sidebar-link secondary';
+      a.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i> Voir le projet';
+      sidebarLinks.appendChild(a);
     }
 
-    if (git && git.trim() && git.trim() !== '#') {
-      const gitLink = document.createElement('a');
-      gitLink.href = git;
-      gitLink.target = '_blank';
-      gitLink.className = 'sidebar-link';
-      gitLink.innerHTML = '<i class="bx bxl-git"></i> Code Source';
-      sidebarLinks.appendChild(gitLink);
-    }
-    if (competences) {
-      const compList = document.createElement('ul');
-      compList.className = 'competence-list mt-3';
-
-      competences.split(',').forEach(code => {
-        const li = document.createElement('li');
-        li.textContent = competenceLabels[code.trim()] || code.trim();
-        compList.appendChild(li);
-      });
-
-      const compTitle = document.createElement('h5');
-      compTitle.textContent = "Compétences mobilisées :";
-      sidebarLinks.appendChild(compTitle);
-      sidebarLinks.appendChild(compList);
-    }
     sidebar.classList.add('visible');
+    overlay.classList.add('visible');
   }
 
   function closeSidebar() {
     sidebar.classList.remove('visible');
+    overlay.classList.remove('visible');
   }
 
-  // Event listeners pour les projets
-  projectCards.forEach(card => {
-    const btn = card.querySelector('.show-details');
-    if (btn) {
-      btn.addEventListener('click', () => {
-        const { title, description, image, link, git, competences } = card.dataset;
-        openSidebar(title, description, image, link, git, competences);
-      });
-    }
+  document.querySelectorAll('.project-card').forEach((card) => {
+    const btn = card.querySelector('.project-more');
+    btn.addEventListener('click', () => openSidebar(card));
   });
 
   closeBtn.addEventListener('click', closeSidebar);
-
-  // Gestion du filtrage des compétences
-  function filterSkills(category) {
-    skillCards.forEach((card, index) => {
-      const cardCategory = card.getAttribute('data-cat');
-      const shouldShow = category === 'all' || cardCategory === category;
-
-      if (shouldShow) {
-        card.style.display = 'block';
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, index * 30);
-      } else {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        setTimeout(() => {
-          card.style.display = 'none';
-        }, 200);
-      }
-    });
-  }
-
-  // Event listeners pour les filtres
-  filterButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      // Supprimer la classe active de tous les boutons
-      filterButtons.forEach(btn => btn.classList.remove('active'));
-      // Ajouter la classe active au bouton cliqué
-      this.classList.add('active');
-
-      const filterValue = this.getAttribute('data-filter');
-      filterSkills(filterValue);
-    });
-  });
-
-  // Observer d'intersection pour les animations
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.animationPlayState = 'running';
-      }
-    });
-  }, observerOptions);
-
-  // Observer les cartes de compétences
-  skillCards.forEach(card => {
-    observer.observe(card);
-  });
-
-  // Effet parallaxe optimisé avec throttling
-  let ticking = false;
-
-  function updateParallax(e) {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-
-        skillCards.forEach(card => {
-          if (card.matches(':hover')) {
-            const rect = card.getBoundingClientRect();
-            const cardX = (rect.left + rect.width / 2) / window.innerWidth;
-            const cardY = (rect.top + rect.height / 2) / window.innerHeight;
-
-            const deltaX = (x - cardX) * 3;
-            const deltaY = (y - cardY) * 3;
-
-            card.style.transform = `translateY(-10px) scale(1.02) rotateX(${deltaY}deg) rotateY(${deltaX}deg)`;
-          }
-        });
-
-        ticking = false;
-      });
-
-      ticking = true;
-    }
-  }
-
-  document.addEventListener('mousemove', updateParallax);
-
-  // Fermer la sidebar avec Escape
+  overlay.addEventListener('click', closeSidebar);
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && sidebar.classList.contains('visible')) {
-      closeSidebar();
-    }
+    if (e.key === 'Escape') closeSidebar();
   });
 
-  // Fermer la sidebar en cliquant en dehors
-  document.addEventListener('click', (e) => {
-    if (sidebar.classList.contains('visible') &&
-      !sidebar.contains(e.target) &&
-      !e.target.closest('.show-details')) {
-      closeSidebar();
-    }
-  });
+  /* ---------------------------------------------------------------------
+     Année du footer
+  --------------------------------------------------------------------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
 });
