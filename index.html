@@ -36,8 +36,8 @@
       <div class="navbar-links" id="navbar-links">
         <a href="#about" class="nav-link">À propos</a>
         <a href="#experience" class="nav-link">Expérience</a>
-        <a href="#skills" class="nav-link">Compétences</a>
         <a href="#projects" class="nav-link">Projets</a>
+        <a href="#skills" class="nav-link">Compétences</a>
         <a href="#contact" class="nav-link">Contact</a>
 
         <div class="navbar-actions">
@@ -58,7 +58,7 @@
   <main>
     <!-- HERO -->
     <section id="hero" class="hero">
-      <p class="hero-eyebrow">Développeur Web &amp; Application</p>
+      <p class="hero-eyebrow">Alternant en data</p>
       <h1 class="hero-title" id="hero-title" aria-label="Sacha Macé">
         <span class="hero-line" data-line>Sacha</span>
         <span class="hero-line" data-line>Macé</span>
@@ -140,6 +140,183 @@
         </div>
       </div>
     </section>
+
+    <!-- PROJETS -->
+    <section id="projects" class="section projects">
+      <div class="section-head">
+        <p class="section-kicker">Réalisations</p>
+        <h2 class="section-title">Mes projets</h2>
+        <p class="section-desc">Une sélection de projets perso et d'équipe, organisés autour des 6 blocs de compétences de mon BUT Informatique.</p>
+      </div>
+
+      <!--
+        Carte mentale des compétences : chaque .project-card porte un attribut
+        data-competences avec un ou plusieurs codes séparés par des virgules.
+        Codes disponibles :
+          dev     = Réaliser un développement d'application
+          optim   = Optimiser des applications informatiques
+          admin   = Administrer des systèmes informatiques communicants complexes
+          data    = Gérer des données de l'information
+          gestion = Conduite de projet
+          equipe  = Travailler dans une équipe informatique
+      -->
+      <div class="mindmap-wrap">
+        <p class="mindmap-hint">Clique sur un bloc de compétences pour découvrir les projets qui l'illustrent.</p>
+
+        <div class="mindmap" id="mindmap">
+          <svg class="mindmap-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+            <line class="mindmap-line" data-line="dev" x1="50" y1="50" x2="50" y2="12"></line>
+            <line class="mindmap-line" data-line="optim" x1="50" y1="50" x2="82.9" y2="31"></line>
+            <line class="mindmap-line" data-line="admin" x1="50" y1="50" x2="82.9" y2="69"></line>
+            <line class="mindmap-line" data-line="data" x1="50" y1="50" x2="50" y2="88"></line>
+            <line class="mindmap-line" data-line="gestion" x1="50" y1="50" x2="17.1" y2="69"></line>
+            <line class="mindmap-line" data-line="equipe" x1="50" y1="50" x2="17.1" y2="31"></line>
+          </svg>
+
+          <button type="button" class="mindmap-center active" id="mindmap-reset" aria-label="Réinitialiser, afficher tous les projets">
+            <span>BUT<br>Informatique</span>
+          </button>
+
+          <button type="button" class="mindmap-node" data-comp="dev" style="--x:50%; --y:12%;">
+            <i class="fa-solid fa-code"></i>
+            <span>Réaliser un développement d'application</span>
+          </button>
+          <button type="button" class="mindmap-node" data-comp="optim" style="--x:82.9%; --y:31%;">
+            <i class="fa-solid fa-gauge-high"></i>
+            <span>Optimiser des applications informatiques</span>
+          </button>
+          <button type="button" class="mindmap-node" data-comp="admin" style="--x:82.9%; --y:69%;">
+            <i class="fa-solid fa-server"></i>
+            <span>Administrer des systèmes informatiques communicants complexes</span>
+          </button>
+          <button type="button" class="mindmap-node" data-comp="data" style="--x:50%; --y:88%;">
+            <i class="fa-solid fa-database"></i>
+            <span>Gérer des données de l'information</span>
+          </button>
+          <button type="button" class="mindmap-node" data-comp="gestion" style="--x:17.1%; --y:69%;">
+            <i class="fa-solid fa-diagram-project"></i>
+            <span>Conduite de projet</span>
+          </button>
+          <button type="button" class="mindmap-node" data-comp="equipe" style="--x:17.1%; --y:31%;">
+            <i class="fa-solid fa-people-group"></i>
+            <span>Travailler dans une équipe informatique</span>
+          </button>
+        </div>
+
+        <p class="mindmap-status" id="mindmap-status">Tous les projets</p>
+      </div>
+
+      <div class="projects-grid" id="projects-grid">
+
+        <article class="project-card"
+          data-title="App Manager Tournaments"
+          data-meta="Projet perso · Seul"
+          data-description="Un site web pour créer, gérer et suivre des tournois de A à Z : inscriptions, brackets, résultats. Développé en solo pour aller au bout d'une idée full-stack, de l'API à l'interface."
+          data-git="https://github.com/sachamace/app_manager_tournaments"
+          data-link=""
+          data-tags="React,Node.js,MongoDB,API REST"
+          data-competences="dev,data">
+          <span class="project-meta">Projet perso · Seul</span>
+          <h3 class="project-title">App Manager Tournaments</h3>
+          <p class="project-text">Gestionnaire de tournois full-stack : API REST Node.js, React côté client, MongoDB pour les données.</p>
+          <p class="project-stack">React · Node.js · MongoDB</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
+        </article>
+
+        <article class="project-card"
+          data-title="Fit Finder"
+          data-meta="Équipe de 5"
+          data-award="Prix régional Trophées NSI 2024"
+          data-description="Un moteur de recherche dédié à l'actualité sportive, pensé pour un fan de sport qui veut aller droit au but. Projet réalisé en équipe de 5, lauréat du prix régional des Trophées NSI 2024."
+          data-git="https://gitlab.com/trophees-nsi/projet/-/tree/5df947a69098ab2fb817f16b779429e68b9e17fe/"
+          data-link="https://depot.trophees-nsi.fr/uploads/Etoj9jUG2zXpHwP50z5aTEiWiwQpJn9Z3EO7dgEa.pdf"
+          data-tags="Python,HTML,CSS,JavaScript,SQLite"
+          data-competences="dev,data,gestion,equipe">
+          <span class="project-meta">Équipe de 5</span>
+          <span class="project-award">★ Prix régional Trophées NSI 2024</span>
+          <h3 class="project-title">Fit Finder</h3>
+          <p class="project-text">Moteur de recherche spécialisé dans le sport, réalisé en équipe de 5 et primé au niveau régional.</p>
+          <p class="project-stack">Python · SQLite · JS</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
+        </article>
+
+        <article class="project-card"
+          data-title="Site Web Escrime — JO"
+          data-meta="Projet d'équipe"
+          data-description="Un site web complet construit en équipe autour des Jeux Olympiques, avec une partie dédiée à l'escrime que j'ai portée : contenu, mise en page et intégration."
+          data-git="https://github.com/Gabriel-Monnier/Site_Jo"
+          data-link=""
+          data-tags="HTML,CSS,JavaScript"
+          data-competences="dev,equipe">
+          <span class="project-meta">Projet d'équipe</span>
+          <h3 class="project-title">Site Web Escrime — JO</h3>
+          <p class="project-text">Site dédié aux Jeux Olympiques, avec la partie escrime développée et intégrée par mes soins.</p>
+          <p class="project-stack">HTML · CSS · JS</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
+        </article>
+
+        <article class="project-card"
+          data-title="Alizon"
+          data-meta="Projet d'équipe · BUT2"
+          data-description="Un projet de deuxième année développé en PHP, avec une bonne partie de logique métier côté serveur et une interface stylée en SCSS."
+          data-git="https://github.com/sachamace/Alizon"
+          data-link=""
+          data-tags="PHP,SCSS,JavaScript"
+          data-competences="dev,gestion,equipe">
+          <span class="project-meta">Projet d'équipe · BUT2</span>
+          <h3 class="project-title">Alizon</h3>
+          <p class="project-text">Application web en PHP développée en deuxième année de BUT, interface en SCSS.</p>
+          <p class="project-stack">PHP · SCSS · JS</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
+        </article>
+
+        <article class="project-card"
+          data-title="Site en réseau — Apache"
+          data-meta="Projet d'équipe"
+          data-description="Mise en place d'un site web servi via un serveur Apache configuré en réseau, avec les scripts de déploiement associés."
+          data-git="https://github.com/sachamace/SAE203"
+          data-link=""
+          data-tags="HTML,JavaScript,Apache,Shell"
+          data-competences="admin,equipe">
+          <span class="project-meta">Projet d'équipe</span>
+          <h3 class="project-title">Site en réseau — Apache</h3>
+          <p class="project-text">Site web déployé sur un serveur Apache configuré en réseau, scripts de mise en place inclus.</p>
+          <p class="project-stack">HTML · Apache · Shell</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
+        </article>
+
+        <article class="project-card"
+          data-title="Snake Autonome"
+          data-meta="Projet d'équipe · Algorithmique"
+          data-description="Après une première version jouable du Snake en C, cette version se pilote toute seule : un algorithme prend les décisions de déplacement du serpent en temps réel."
+          data-git="https://github.com/sachamace/SAE102_SNAKEAUTONOME"
+          data-link=""
+          data-tags="C,Algorithmique"
+          data-competences="optim,equipe">
+          <span class="project-meta">Projet d'équipe · Algorithmique</span>
+          <h3 class="project-title">Snake Autonome</h3>
+          <p class="project-text">Version du jeu Snake pilotée par un algorithme de décision, écrite en C.</p>
+          <p class="project-stack">C</p>
+          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Panneau détail projet -->
+    <div id="project-sidebar" class="project-sidebar">
+      <button id="close-sidebar" class="close-btn" aria-label="Fermer">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <span class="sidebar-meta" id="sidebar-meta"></span>
+      <span class="sidebar-award" id="sidebar-award"></span>
+      <h3 id="sidebar-title"></h3>
+      <p id="sidebar-description"></p>
+      <div class="sidebar-tags" id="sidebar-tags"></div>
+      <div class="sidebar-competences" id="sidebar-competences"></div>
+      <div class="sidebar-links" id="sidebar-links"></div>
+    </div>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     <!-- COMPÉTENCES -->
     <section id="skills" class="section skills">
@@ -240,119 +417,6 @@
         </div>
       </div>
     </section>
-
-    <!-- PROJETS -->
-    <section id="projects" class="section projects">
-      <div class="section-head">
-        <p class="section-kicker">Réalisations</p>
-        <h2 class="section-title">Mes projets</h2>
-        <p class="section-desc">Une sélection de projets perso et d'équipe, du plus récent au plus ancien.</p>
-      </div>
-
-      <div class="projects-grid" id="projects-grid">
-
-        <article class="project-card"
-          data-title="App Manager Tournaments"
-          data-meta="Projet perso · Seul"
-          data-description="Un site web pour créer, gérer et suivre des tournois de A à Z : inscriptions, brackets, résultats. Développé en solo pour aller au bout d'une idée full-stack, de l'API à l'interface."
-          data-git="https://github.com/sachamace/app_manager_tournaments"
-          data-link=""
-          data-tags="React,Node.js,MongoDB,API REST">
-          <span class="project-meta">Projet perso · Seul</span>
-          <h3 class="project-title">App Manager Tournaments</h3>
-          <p class="project-text">Gestionnaire de tournois full-stack : API REST Node.js, React côté client, MongoDB pour les données.</p>
-          <p class="project-stack">React · Node.js · MongoDB</p>
-          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-        </article>
-
-        <article class="project-card"
-          data-title="Fit Finder"
-          data-meta="Équipe de 5"
-          data-award="Prix régional Trophées NSI 2024"
-          data-description="Un moteur de recherche dédié à l'actualité sportive, pensé pour un fan de sport qui veut aller droit au but. Projet réalisé en équipe de 5, lauréat du prix régional des Trophées NSI 2024."
-          data-git="https://gitlab.com/trophees-nsi/projet/-/tree/5df947a69098ab2fb817f16b779429e68b9e17fe/"
-          data-link="https://depot.trophees-nsi.fr/uploads/Etoj9jUG2zXpHwP50z5aTEiWiwQpJn9Z3EO7dgEa.pdf"
-          data-tags="Python,HTML,CSS,JavaScript,SQLite">
-          <span class="project-meta">Équipe de 5</span>
-          <span class="project-award">★ Prix régional Trophées NSI 2024</span>
-          <h3 class="project-title">Fit Finder</h3>
-          <p class="project-text">Moteur de recherche spécialisé dans le sport, réalisé en équipe de 5 et primé au niveau régional.</p>
-          <p class="project-stack">Python · SQLite · JS</p>
-          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-        </article>
-
-        <article class="project-card"
-          data-title="Site Web Escrime — JO"
-          data-meta="Projet d'équipe"
-          data-description="Un site web complet construit en équipe autour des Jeux Olympiques, avec une partie dédiée à l'escrime que j'ai portée : contenu, mise en page et intégration."
-          data-git="https://github.com/Gabriel-Monnier/Site_Jo"
-          data-link=""
-          data-tags="HTML,CSS,JavaScript">
-          <span class="project-meta">Projet d'équipe</span>
-          <h3 class="project-title">Site Web Escrime — JO</h3>
-          <p class="project-text">Site dédié aux Jeux Olympiques, avec la partie escrime développée et intégrée par mes soins.</p>
-          <p class="project-stack">HTML · CSS · JS</p>
-          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-        </article>
-
-        <article class="project-card"
-          data-title="Alizon"
-          data-meta="Projet d'équipe · BUT2"
-          data-description="Un projet de deuxième année développé en PHP, avec une bonne partie de logique métier côté serveur et une interface stylée en SCSS."
-          data-git="https://github.com/sachamace/Alizon"
-          data-link=""
-          data-tags="PHP,SCSS,JavaScript">
-          <span class="project-meta">Projet d'équipe · BUT2</span>
-          <h3 class="project-title">Alizon</h3>
-          <p class="project-text">Application web en PHP développée en deuxième année de BUT, interface en SCSS.</p>
-          <p class="project-stack">PHP · SCSS · JS</p>
-          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-        </article>
-
-        <article class="project-card"
-          data-title="Site en réseau — Apache"
-          data-meta="Projet d'équipe"
-          data-description="Mise en place d'un site web servi via un serveur Apache configuré en réseau, avec les scripts de déploiement associés."
-          data-git="https://github.com/sachamace/SAE203"
-          data-link=""
-          data-tags="HTML,JavaScript,Apache,Shell">
-          <span class="project-meta">Projet d'équipe</span>
-          <h3 class="project-title">Site en réseau — Apache</h3>
-          <p class="project-text">Site web déployé sur un serveur Apache configuré en réseau, scripts de mise en place inclus.</p>
-          <p class="project-stack">HTML · Apache · Shell</p>
-          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-        </article>
-
-        <article class="project-card"
-          data-title="Snake Autonome"
-          data-meta="Projet d'équipe · Algorithmique"
-          data-description="Après une première version jouable du Snake en C, cette version se pilote toute seule : un algorithme prend les décisions de déplacement du serpent en temps réel."
-          data-git="https://github.com/sachamace/SAE102_SNAKEAUTONOME"
-          data-link=""
-          data-tags="C,Algorithmique">
-          <span class="project-meta">Projet d'équipe · Algorithmique</span>
-          <h3 class="project-title">Snake Autonome</h3>
-          <p class="project-text">Version du jeu Snake pilotée par un algorithme de décision, écrite en C.</p>
-          <p class="project-stack">C</p>
-          <button class="project-more">Voir le détail <i class="fa-solid fa-arrow-right"></i></button>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Panneau détail projet -->
-    <div id="project-sidebar" class="project-sidebar">
-      <button id="close-sidebar" class="close-btn" aria-label="Fermer">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-      <span class="sidebar-meta" id="sidebar-meta"></span>
-      <span class="sidebar-award" id="sidebar-award"></span>
-      <h3 id="sidebar-title"></h3>
-      <p id="sidebar-description"></p>
-      <div class="sidebar-tags" id="sidebar-tags"></div>
-      <div class="sidebar-links" id="sidebar-links"></div>
-    </div>
-    <div class="sidebar-overlay" id="sidebar-overlay"></div>
 
     <!-- CONTACT -->
     <section id="contact" class="section contact">

@@ -604,6 +604,166 @@ ul {
 }
 
 /* ==========================================================================
+   Carte mentale des compétences (BUT Informatique)
+   ========================================================================== */
+.mindmap-wrap {
+  margin-bottom: 2.5rem;
+}
+
+.mindmap-hint {
+  text-align: center;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.mindmap {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+}
+
+.mindmap-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mindmap-line {
+  stroke: var(--border);
+  stroke-width: 0.4;
+  transition: stroke 0.25s ease, stroke-width 0.25s ease;
+}
+
+.mindmap-line.active {
+  stroke: var(--accent);
+  stroke-width: 0.7;
+}
+
+.mindmap-center,
+.mindmap-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  text-align: center;
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+.mindmap-center {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.3;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  z-index: 2;
+}
+
+.mindmap-center:hover {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+.mindmap-center.active {
+  box-shadow: 0 0 0 4px var(--accent-soft), var(--shadow-md);
+}
+
+.mindmap-node {
+  top: var(--y);
+  left: var(--x);
+  width: 148px;
+  padding: 0.85rem 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  color: var(--text-soft);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1.25;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.mindmap-node i {
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
+.mindmap-node:hover {
+  transform: translate(-50%, -50%) translateY(-3px);
+  border-color: var(--accent);
+}
+
+.mindmap-node.active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.mindmap-status {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .mindmap {
+    aspect-ratio: unset;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+
+  .mindmap-svg {
+    display: none;
+  }
+
+  .mindmap-center,
+  .mindmap-node {
+    position: static;
+    transform: none;
+  }
+
+  .mindmap-center {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    padding: 0.9rem;
+  }
+
+  .mindmap-center:hover {
+    transform: none;
+  }
+
+  .mindmap-node {
+    width: calc(50% - 0.4rem);
+  }
+
+  .mindmap-node:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* ==========================================================================
    Projects
    ========================================================================== */
 .projects-grid {
@@ -621,6 +781,10 @@ ul {
   flex-direction: column;
   align-items: flex-start;
   transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card.is-hidden {
+  display: none;
 }
 
 .project-card:hover {
@@ -757,6 +921,25 @@ ul {
   font-weight: 600;
   color: var(--text-soft);
   margin-bottom: 1.75rem;
+}
+
+.sidebar-competences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.sidebar-competence {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 600;
 }
 
 .sidebar-links {
