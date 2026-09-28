@@ -323,98 +323,53 @@
       <div class="section-head">
         <p class="section-kicker">Boîte à outils</p>
         <h2 class="section-title">Mes compétences</h2>
+        <p class="section-desc">Trois packs à ouvrir : langages, frameworks &amp; data, outils &amp; devops.</p>
       </div>
 
-      <div class="filter-bar">
-        <button class="filter-btn active" data-filter="all">Tout</button>
-        <button class="filter-btn" data-filter="langages">Langages</button>
-        <button class="filter-btn" data-filter="data">Frameworks &amp; Data</button>
-        <button class="filter-btn" data-filter="outils">Outils &amp; DevOps</button>
+      <div class="packs-grid" id="packs-grid">
+        <button type="button" class="pack-card pack-card--langages" data-pack="langages">
+          <span class="pack-shine" aria-hidden="true"></span>
+          <i class="fa-solid fa-layer-group pack-icon"></i>
+          <span class="pack-name">Langages</span>
+          <span class="pack-count">8 compétences</span>
+        </button>
+        <button type="button" class="pack-card pack-card--data" data-pack="data">
+          <span class="pack-shine" aria-hidden="true"></span>
+          <i class="fa-solid fa-layer-group pack-icon"></i>
+          <span class="pack-name">Frameworks &amp; Data</span>
+          <span class="pack-count">5 compétences</span>
+        </button>
+        <button type="button" class="pack-card pack-card--outils" data-pack="outils">
+          <span class="pack-shine" aria-hidden="true"></span>
+          <i class="fa-solid fa-layer-group pack-icon"></i>
+          <span class="pack-name">Outils &amp; DevOps</span>
+          <span class="pack-count">7 compétences</span>
+        </button>
       </div>
 
-      <div class="skills-grid" id="skills-grid">
-        <div class="skill-card" data-cat="langages">
-          <div class="skill-icon"><i class="fa-brands fa-html5"></i></div>
-          <div class="skill-name">HTML5</div>
-        </div>
-        <div class="skill-card" data-cat="langages">
-          <div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div>
-          <div class="skill-name">CSS3</div>
-        </div>
-        <div class="skill-card" data-cat="langages">
-          <div class="skill-icon"><i class="fa-brands fa-square-js"></i></div>
-          <div class="skill-name">JavaScript</div>
-        </div>
-        <div class="skill-card" data-cat="langages">
-          <div class="skill-icon"><i class="fa-brands fa-php"></i></div>
-          <div class="skill-name">PHP</div>
-        </div>
-        <div class="skill-card" data-cat="langages">
-          <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
-          <div class="skill-name">Python</div>
-        </div>
-        <div class="skill-card" data-cat="langages">
-          <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
-          <div class="skill-name">C</div>
-        </div>
-        <div class="skill-card" data-cat="langages">
-          <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
-          <div class="skill-name">Java</div>
-        </div>
-        <div class="skill-card" data-cat="langages">
-          <div class="skill-icon"><i class="fa-brands fa-dart-lang"></i></div>
-          <div class="skill-name">Dart</div>
+      <div class="pack-viewer" id="pack-viewer">
+        <button type="button" class="pack-back" id="pack-back">
+          <i class="fa-solid fa-arrow-left"></i> Retour aux packs
+        </button>
+
+        <p class="pack-viewer-title" id="pack-viewer-title"></p>
+
+        <div class="skill-reveal">
+          <button type="button" class="skill-nav skill-nav--prev" id="skill-prev" aria-label="Compétence précédente">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <div class="skill-card-big" id="skill-card-big">
+            <i class="skill-card-icon" id="skill-card-icon"></i>
+            <span class="skill-card-name" id="skill-card-name"></span>
+          </div>
+
+          <button type="button" class="skill-nav skill-nav--next" id="skill-next" aria-label="Compétence suivante">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
 
-        <div class="skill-card" data-cat="data">
-          <div class="skill-icon"><i class="fa-brands fa-react"></i></div>
-          <div class="skill-name">React</div>
-        </div>
-        <div class="skill-card" data-cat="data">
-          <div class="skill-icon"><i class="fa-brands fa-node-js"></i></div>
-          <div class="skill-name">Node.js</div>
-        </div>
-        <div class="skill-card" data-cat="data">
-          <div class="skill-icon"><i class="fa-solid fa-leaf"></i></div>
-          <div class="skill-name">MongoDB</div>
-        </div>
-        <div class="skill-card" data-cat="data">
-          <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
-          <div class="skill-name">SQL / SQLite</div>
-        </div>
-        <div class="skill-card" data-cat="data">
-          <div class="skill-icon"><i class="fa-solid fa-table-cells"></i></div>
-          <div class="skill-name">Tutorial D</div>
-        </div>
-
-        <div class="skill-card" data-cat="outils">
-          <div class="skill-icon"><i class="fa-brands fa-git-alt"></i></div>
-          <div class="skill-name">Git</div>
-        </div>
-        <div class="skill-card" data-cat="outils">
-          <div class="skill-icon"><i class="fa-brands fa-gitlab"></i></div>
-          <div class="skill-name">GitLab</div>
-        </div>
-        <div class="skill-card" data-cat="outils">
-          <div class="skill-icon"><i class="fa-brands fa-docker"></i></div>
-          <div class="skill-name">Docker</div>
-        </div>
-        <div class="skill-card" data-cat="outils">
-          <div class="skill-icon"><i class="fa-brands fa-linux"></i></div>
-          <div class="skill-name">Linux / Bash</div>
-        </div>
-        <div class="skill-card" data-cat="outils">
-          <div class="skill-icon"><i class="fa-brands fa-trello"></i></div>
-          <div class="skill-name">Trello</div>
-        </div>
-        <div class="skill-card" data-cat="outils">
-          <div class="skill-icon"><i class="fa-brands fa-figma"></i></div>
-          <div class="skill-name">Figma</div>
-        </div>
-        <div class="skill-card" data-cat="outils">
-          <div class="skill-icon"><i class="fa-brands fa-android"></i></div>
-          <div class="skill-name">Android Studio</div>
-        </div>
+        <p class="skill-counter" id="skill-counter"></p>
       </div>
     </section>
 

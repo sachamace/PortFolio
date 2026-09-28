@@ -63,22 +63,144 @@ document.addEventListener('DOMContentLoaded', function () {
   gsap.to('.blob-2', { x: -40, y: -40, duration: 16, repeat: -1, yoyo: true, ease: 'sine.inOut' });
 
   /* ---------------------------------------------------------------------
-     Filtres de compétences
+     Packs de compétences à ouvrir, façon boosters
   --------------------------------------------------------------------- */
-  const filterButtons = document.querySelectorAll('.filter-btn');
-  const skillCards = document.querySelectorAll('.skill-card');
+  const skillsData = {
+    langages: [
+      { icon: 'fa-brands fa-html5', name: 'HTML5' },
+      { icon: 'fa-brands fa-css3-alt', name: 'CSS3' },
+      { icon: 'fa-brands fa-square-js', name: 'JavaScript' },
+      { icon: 'fa-brands fa-php', name: 'PHP' },
+      { icon: 'fa-brands fa-python', name: 'Python' },
+      { icon: 'fa-solid fa-code', name: 'C' },
+      { icon: 'fa-brands fa-java', name: 'Java' },
+      { icon: 'fa-brands fa-dart-lang', name: 'Dart' }
+    ],
+    data: [
+      { icon: 'fa-brands fa-react', name: 'React' },
+      { icon: 'fa-brands fa-node-js', name: 'Node.js' },
+      { icon: 'fa-solid fa-leaf', name: 'MongoDB' },
+      { icon: 'fa-solid fa-database', name: 'SQL / SQLite' },
+      { icon: 'fa-solid fa-table-cells', name: 'Tutorial D' }
+    ],
+    outils: [
+      { icon: 'fa-brands fa-git-alt', name: 'Git' },
+      { icon: 'fa-brands fa-gitlab', name: 'GitLab' },
+      { icon: 'fa-brands fa-docker', name: 'Docker' },
+      { icon: 'fa-brands fa-linux', name: 'Linux / Bash' },
+      { icon: 'fa-brands fa-trello', name: 'Trello' },
+      { icon: 'fa-brands fa-figma', name: 'Figma' },
+      { icon: 'fa-brands fa-android', name: 'Android Studio' }
+    ]
+  };
 
-  filterButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      filterButtons.forEach((b) => b.classList.remove('active'));
-      button.classList.add('active');
-      const filter = button.dataset.filter;
+  const packLabels = {
+    langages: 'Langages',
+    data: 'Frameworks & Data',
+    outils: 'Outils & DevOps'
+  };
 
-      skillCards.forEach((card) => {
-        const match = filter === 'all' || card.dataset.cat === filter;
-        card.style.display = match ? '' : 'none';
-      });
+  const packsGrid = document.getElementById('packs-grid');
+  const packViewer = document.getElementById('pack-viewer');
+  const packBack = document.getElementById('pack-back');
+  const packViewerTitle = document.getElementById('pack-viewer-title');
+  const skillCardBig = document.getElementById('skill-card-big');
+  const skillCardIcon = document.getElementById('skill-card-icon');
+  const skillCardName = document.getElementById('skill-card-name');
+  const skillCounter = document.getElementById('skill-counter');
+  const skillPrev = document.getElementById('skill-prev');
+  const skillNext = document.getElementById('skill-next');
+
+  let currentSkills = [];
+  let currentIndex = 0;
+
+  function renderSkill(direction) {
+    const skill = currentSkills[currentIndex];
+
+    const applyContent = () => {
+      skillCardIcon.className = `skill-card-icon ${skill.icon}`;
+      skillCardName.textContent = skill.name;
+      skillCounter.textContent = `${currentIndex + 1} / ${currentSkills.length}`;
+    };
+
+    if (!direction) {
+      applyContent();
+      gsap.fromTo(skillCardBig, { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.3, ease: 'power2.out' });
+      return;
+    }
+
+    gsap.to(skillCardBig, {
+      opacity: 0,
+      x: -30 * direction,
+      duration: 0.15,
+      ease: 'power1.in',
+      onComplete: () => {
+        applyContent();
+        gsap.fromTo(skillCardBig, { opacity: 0, x: 30 * direction }, { opacity: 1, x: 0, duration: 0.25, ease: 'power2.out' });
+      }
     });
+  }
+
+  function openPack(packBtn) {
+    currentSkills = skillsData[packBtn.dataset.pack];
+    currentIndex = 0;
+    packViewerTitle.textContent = packLabels[packBtn.dataset.pack];
+
+    gsap.timeline()
+      .to(packBtn, { scale: 1.15, rotate: -3, duration: 0.18, ease: 'power2.out' })
+      .to(packBtn, { rotate: 3, duration: 0.09, repeat: 3, yoyo: true, ease: 'power1.inOut' })
+      .to(packsGrid, {
+        opacity: 0,
+        y: -16,
+        duration: 0.3,
+        ease: 'power2.in',
+        onComplete: () => {
+          packsGrid.classList.add('is-hidden');
+          gsap.set(packsGrid, { clearProps: 'all' });
+          gsap.set(packBtn, { clearProps: 'all' });
+          packViewer.classList.add('visible');
+          renderSkill();
+          gsap.fromTo(packViewer, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+        }
+      });
+  }
+
+  function closePackViewer() {
+    gsap.to(packViewer, {
+      opacity: 0,
+      y: 16,
+      duration: 0.25,
+      ease: 'power2.in',
+      onComplete: () => {
+        packViewer.classList.remove('visible');
+        gsap.set(packViewer, { clearProps: 'all' });
+        packsGrid.classList.remove('is-hidden');
+        gsap.fromTo(packsGrid, { opacity: 0, y: -16 }, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+      }
+    });
+  }
+
+  document.querySelectorAll('.pack-card').forEach((card) => {
+    card.addEventListener('click', () => openPack(card));
+  });
+
+  packBack.addEventListener('click', closePackViewer);
+
+  skillNext.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % currentSkills.length;
+    renderSkill(1);
+  });
+
+  skillPrev.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + currentSkills.length) % currentSkills.length;
+    renderSkill(-1);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!packViewer.classList.contains('visible')) return;
+    if (e.key === 'ArrowRight') skillNext.click();
+    if (e.key === 'ArrowLeft') skillPrev.click();
+    if (e.key === 'Escape') closePackViewer();
   });
 
   /* ---------------------------------------------------------------------
