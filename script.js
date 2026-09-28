@@ -215,6 +215,17 @@ document.addEventListener('DOMContentLoaded', function () {
     equipe: 'Travailler dans une équipe informatique'
   };
 
+  /* Mots-clés officiels du programme BUT Informatique, utilisés comme
+     balises courtes sur les projets (cf. consignes du portfolio BUT3). */
+  const competenceKeywords = {
+    dev: 'Réaliser',
+    optim: 'Optimiser',
+    admin: 'Administrer',
+    data: 'Gérer',
+    gestion: 'Conduire',
+    equipe: 'Collaborer'
+  };
+
   const mindmap = document.getElementById('mindmap');
   const mindmapNodes = document.querySelectorAll('.mindmap-node');
   const mindmapReset = document.getElementById('mindmap-reset');
@@ -275,6 +286,31 @@ document.addEventListener('DOMContentLoaded', function () {
   function cardCompetences(card) {
     return (card.dataset.competences || '').split(',').map((c) => c.trim()).filter(Boolean);
   }
+
+  /* Affiche les mots-clés de compétences directement sur chaque carte projet
+     (balises courtes, cf. consignes du portfolio : pas d'intitulés complets). */
+  function renderProjectBadges() {
+    projectCards.forEach((card) => {
+      const keywords = cardCompetences(card)
+        .map((comp) => competenceKeywords[comp])
+        .filter(Boolean);
+      if (!keywords.length) return;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'project-competences';
+      keywords.forEach((keyword) => {
+        const tag = document.createElement('span');
+        tag.className = 'tag-comp';
+        tag.textContent = keyword;
+        wrap.appendChild(tag);
+      });
+
+      const moreBtn = card.querySelector('.project-more');
+      card.insertBefore(wrap, moreBtn);
+    });
+  }
+
+  renderProjectBadges();
 
   function applyProjectFilter() {
     const visibleCards = [];
@@ -351,10 +387,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     sidebarCompetences.innerHTML = '';
     cardCompetences(card).forEach((comp) => {
-      if (!competenceLabels[comp]) return;
+      if (!competenceKeywords[comp]) return;
       const span = document.createElement('span');
       span.className = 'sidebar-competence';
-      span.textContent = competenceLabels[comp];
+      span.textContent = competenceKeywords[comp];
+      span.title = competenceLabels[comp];
       sidebarCompetences.appendChild(span);
     });
 

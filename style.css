@@ -741,7 +741,19 @@ ul {
   text-align: center;
   color: var(--text-soft);
   font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.mindmap-legend {
+  text-align: center;
+  color: var(--award);
+  font-size: 0.78rem;
+  font-weight: 700;
   margin-bottom: 1.5rem;
+}
+
+.mindmap-legend i {
+  margin-right: 0.3rem;
 }
 
 .mindmap {
@@ -818,10 +830,6 @@ ul {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  color: var(--text-soft);
-  font-size: 0.72rem;
-  font-weight: 700;
-  line-height: 1.25;
   box-shadow: var(--shadow-sm);
   transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, background 0.2s ease;
 }
@@ -829,6 +837,20 @@ ul {
 .mindmap-node i {
   font-size: 1.3rem;
   color: var(--accent);
+}
+
+.mindmap-keyword {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+
+.mindmap-subtitle {
+  font-size: 0.66rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-soft);
 }
 
 .mindmap-node:hover {
@@ -839,7 +861,26 @@ ul {
 .mindmap-node.active {
   background: var(--accent-soft);
   border-color: var(--accent);
-  color: var(--text);
+}
+
+.mindmap-node.active .mindmap-keyword {
+  color: var(--accent);
+}
+
+.parcours-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--award);
+  color: #fff;
+  font-size: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
 }
 
 .mindmap-status {
@@ -868,6 +909,12 @@ ul {
   .mindmap-node {
     position: static;
     transform: none;
+  }
+
+  .mindmap-node {
+    position: relative;
+    top: auto;
+    left: auto;
   }
 
   .mindmap-center {
@@ -953,6 +1000,25 @@ ul {
   font-weight: 600;
   color: var(--text-soft);
   margin-bottom: 1.2rem;
+}
+
+.project-competences {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.tag-comp {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .project-more {

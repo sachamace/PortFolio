@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sacha Macé — Développeur Web &amp; Application</title>
-  <meta name="description" content="Portfolio de Sacha Macé, étudiant en BUT Informatique à l'IUT de Lannion, développeur web et application.">
+  <title>Sacha Macé — BUT Informatique, parcours C</title>
+  <meta name="description" content="Portfolio de Sacha Macé, étudiant en BUT Informatique (parcours C) à l'IUT de Lannion, alternant Data Analyst chez La Poste Groupe.">
 
   <!-- Polices -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,7 +65,8 @@
       </h1>
       <p class="hero-subtitle">
         Étudiant en BUT Informatique à l'IUT de Lannion, actuellement en alternance.
-        Je construis des applications et des sites web, du back-end à l'interface.
+        Je cherche toujours à acquérir de nouvelles compétences en informatique. 
+        J'aime entreprendre de nouveaux projets informatiques.
       </p>
 
       <div class="hero-cta">
@@ -94,13 +95,14 @@
 
         <div class="about-content">
           <p class="about-text">
-            Salut, je suis Sacha ! Étudiant en BUT Informatique à l'IUT de Lannion, curieux et
-            impliqué, entreprenant, j'aime autant écrire du code que comprendre comment un projet se construit
+            Salut, je suis Sacha ! Étudiant en BUT Informatique à l'IUT de Lannion, curieux,
+            impliqué et entreprenant, j'aime autant écrire du code que comprendre comment un projet se construit
             en équipe, de l'idée jusqu'à la mise en ligne.
           </p>
           <ul class="about-facts">
+            <li><i class="fa-solid fa-graduation-cap"></i> BUT Informatique — Parcours C</li>
             <li><i class="fa-solid fa-location-dot"></i> Lannion (22300)</li>
-            <li><i class="fa-solid fa-briefcase"></i> Actuellement en alternance à la Poste Groupe</li>
+            <li><i class="fa-solid fa-briefcase"></i> Actuellement en alternance à La Poste Groupe</li>
             <li><i class="fa-solid fa-id-card"></i> Permis B</li>
             <li><i class="fa-solid fa-language"></i> FR · EN (B1) · ES (A2)</li>
           </ul>
@@ -152,16 +154,17 @@
       <!--
         Carte mentale des compétences : chaque .project-card porte un attribut
         data-competences avec un ou plusieurs codes séparés par des virgules.
-        Codes disponibles :
-          dev     = Réaliser un développement d'application
-          optim   = Optimiser des applications informatiques
-          admin   = Administrer des systèmes informatiques communicants complexes
-          data    = Gérer des données de l'information
-          gestion = Conduite de projet
-          equipe  = Travailler dans une équipe informatique
+        Codes disponibles (mot-clé officiel du programme BUT Informatique entre parenthèses) :
+          dev     = Réaliser un développement d'application (réaliser)
+          optim   = Optimiser des applications informatiques (optimiser)
+          admin   = Administrer des systèmes informatiques communicants complexes (administrer)
+          data    = Gérer des données de l'information (gérer) — compétence de parcours C
+          gestion = Conduite de projet (conduire) — compétence de parcours C
+          equipe  = Travailler dans une équipe informatique (collaborer) — compétence de parcours C
       -->
       <div class="mindmap-wrap">
         <p class="mindmap-hint">Clique sur un bloc de compétences pour découvrir les projets qui l'illustrent.</p>
+        <p class="mindmap-legend"><i class="fa-solid fa-star" aria-hidden="true"></i> Compétences clés de mon parcours (C)</p>
 
         <div class="mindmap" id="mindmap">
           <svg class="mindmap-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -179,27 +182,36 @@
 
           <button type="button" class="mindmap-node" data-comp="dev" style="--x:50%; --y:12%;">
             <i class="fa-solid fa-code"></i>
-            <span>Réaliser un développement d'application</span>
+            <span class="mindmap-keyword">Réaliser</span>
+            <span class="mindmap-subtitle">un développement d'application</span>
           </button>
           <button type="button" class="mindmap-node" data-comp="optim" style="--x:82.9%; --y:31%;">
             <i class="fa-solid fa-gauge-high"></i>
-            <span>Optimiser des applications informatiques</span>
+            <span class="mindmap-keyword">Optimiser</span>
+            <span class="mindmap-subtitle">des applications informatiques</span>
           </button>
           <button type="button" class="mindmap-node" data-comp="admin" style="--x:82.9%; --y:69%;">
             <i class="fa-solid fa-server"></i>
-            <span>Administrer des systèmes informatiques communicants complexes</span>
+            <span class="mindmap-keyword">Administrer</span>
+            <span class="mindmap-subtitle">des systèmes informatiques complexes</span>
           </button>
-          <button type="button" class="mindmap-node" data-comp="data" style="--x:50%; --y:88%;">
+          <button type="button" class="mindmap-node mindmap-node--parcours" data-comp="data" style="--x:50%; --y:88%;">
+            <span class="parcours-badge" aria-hidden="true"><i class="fa-solid fa-star"></i></span>
             <i class="fa-solid fa-database"></i>
-            <span>Gérer des données de l'information</span>
+            <span class="mindmap-keyword">Gérer</span>
+            <span class="mindmap-subtitle">des données de l'information</span>
           </button>
-          <button type="button" class="mindmap-node" data-comp="gestion" style="--x:17.1%; --y:69%;">
+          <button type="button" class="mindmap-node mindmap-node--parcours" data-comp="gestion" style="--x:17.1%; --y:69%;">
+            <span class="parcours-badge" aria-hidden="true"><i class="fa-solid fa-star"></i></span>
             <i class="fa-solid fa-diagram-project"></i>
-            <span>Conduite de projet</span>
+            <span class="mindmap-keyword">Conduire</span>
+            <span class="mindmap-subtitle">un projet</span>
           </button>
-          <button type="button" class="mindmap-node" data-comp="equipe" style="--x:17.1%; --y:31%;">
+          <button type="button" class="mindmap-node mindmap-node--parcours" data-comp="equipe" style="--x:17.1%; --y:31%;">
+            <span class="parcours-badge" aria-hidden="true"><i class="fa-solid fa-star"></i></span>
             <i class="fa-solid fa-people-group"></i>
-            <span>Travailler dans une équipe informatique</span>
+            <span class="mindmap-keyword">Collaborer</span>
+            <span class="mindmap-subtitle">en équipe informatique</span>
           </button>
         </div>
 
@@ -323,7 +335,7 @@
       <div class="section-head">
         <p class="section-kicker">Boîte à outils</p>
         <h2 class="section-title">Mes compétences</h2>
-        <p class="section-desc">Trois packs à ouvrir : langages, frameworks &amp; data, outils &amp; devops.</p>
+        <p class="section-desc">Trois packs à ouvrir : Langages, Frameworks &amp; Data, Outils &amp; DevOps.</p>
       </div>
 
       <div class="packs-grid" id="packs-grid">
